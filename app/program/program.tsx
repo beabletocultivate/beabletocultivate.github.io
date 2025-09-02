@@ -6,6 +6,8 @@ import fieldsImage from '../resources/fields.png';
 import songsJson from '../resources/songs.json';
 import performersJson from '../resources/performers.json';
 
+const INTERMISSION_AFTER_SONG = 10;
+
 function Performer(props: {
     position: string,
     performerId: string
@@ -87,9 +89,13 @@ function Song(props: {
                     </div>
                 </div>
             </div>
-            {index < songsJson.length - 1 && (
-                <hr className="border-t border-on-primary-variant opacity-30" />
-            )}
+            {index === INTERMISSION_AFTER_SONG ?
+                <div className="text-3xl text-on-primary font-bold font-serif text-center mt-10 mb-8">
+                    {strings.intermission}
+                </div> :
+                index < songsJson.length - 1 && (
+                    <hr className="border-t border-on-primary-variant opacity-30" />
+                )}
         </div>
     )
 }

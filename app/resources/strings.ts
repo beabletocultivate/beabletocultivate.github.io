@@ -8,6 +8,7 @@ const information = "演出資訊";
 const program = "節目表";
 const readInformation = `查看${information}`;
 const readProgram = `查看${program}`;
+const intermission = "— 中場休息 —";
 
 /** Event information */
 const eventVenueTitle = "地點";
@@ -15,10 +16,11 @@ const eventVenue = "凝聚力音樂娛樂 Cohesion Space";
 const eventVenueAddress = "台北市松山區八德路三段 106 巷 1 號 B1";
 const eventDateTitle = "時間";
 const eventDate = "2025 年 9 月 14 日（日）";
-const eventTime = "10:00 AM - 15:30 PM";
+const eventTime = "11:20 入場・11:50 演出開始";
 const eventAddToCalendar = "加入行事曆";
 const eventTicketTitle = "票價";
-const eventTicketPrice = "NTD 350 元 / 人";
+const eventTicketPrice = "NTD 350 元";
+const eventBuyTickets = "購買門票";
 
 export default {
     eventName,
@@ -31,6 +33,7 @@ export default {
     program,
     readInformation,
     readProgram,
+    intermission,
 
     eventVenueTitle,
     eventVenue,
@@ -41,5 +44,6 @@ export default {
     eventAddToCalendar,
     eventTicketTitle,
     eventTicketPrice,
+    eventBuyTickets,
     // Add any additional strings here as needed
 };

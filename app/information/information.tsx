@@ -34,6 +34,19 @@ function SectionContent({ content }: { content: string }) {
     );
 }
 
+function SectionLink({ href, text }: { href: string, text: string }) {
+    return (
+
+        <a
+            href={href}
+            target="_blank"
+            className="text-lg font-serif text-white brightness-90 hover:brightness-80 underline cursor-pointer"
+        >
+            {text}
+        </a>
+    );
+}
+
 export default function Information() {
     return (
         <div
@@ -50,14 +63,9 @@ export default function Information() {
                     </h1>
                     {/* Event Date */}
                     <SectionTitle title={strings.eventDateTitle} />
-                    <SectionContent content={strings.eventDate + strings.eventTime} />
-                    <a
-                        href="https://calendar.app.google/PE62RD1HWoKMbAVp8"
-                        target="_blank"
-                        className="text-lg font-serif text-white brightness-90 hover:brightness-80 underline cursor-pointer"
-                    >
-                        {strings.eventAddToCalendar}
-                    </a>
+                    <SectionContent content={strings.eventDate} />
+                    <SectionContent content={strings.eventTime} />
+                    <SectionLink href="https://calendar.app.google/PE62RD1HWoKMbAVp8" text={strings.eventAddToCalendar} />
                     {/* Event Venue */}
                     <SectionTitle title={strings.eventVenueTitle} />
                     <SectionContent content={strings.eventVenue} />
@@ -65,6 +73,7 @@ export default function Information() {
                     {/* Event Ticket Price */}
                     <SectionTitle title={strings.eventTicketTitle} />
                     <SectionContent content={strings.eventTicketPrice} />
+                    <SectionLink href="https://reurl.cc/lYYy5d" text={strings.eventBuyTickets} />
                 </div>
                 <Map />
             </div>
