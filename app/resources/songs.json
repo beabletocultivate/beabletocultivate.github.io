@@ -1,5 +1,149 @@
 [
     {
+        "name": "I Want My Tears Back",
+        "artist": "Nightwish",
+        "bandName": "冰島伏特加 Iceland Vodka",
+        "performers": [
+            ["v", "mel"],
+            ["eg/v", "che"],
+            ["kb", "daw"],
+            ["b", "mon"],
+            ["d", "dog"]
+        ]
+    },
+    {
+        "name": "Bunny Girl",
+        "artist": "AKASAKI",
+        "bandName": "城市旅人 City Traveller",
+        "performers": [
+            ["v", "sha"],
+            ["eg", "shy"],
+            ["eg", "che"],
+            ["b", "hun"],
+            ["d", "woj"]
+        ]
+    },
+    {
+        "name": "失蹤人口",
+        "artist": "甜約翰",
+        "bandName": "迷幻森林",
+        "performers": [
+            ["v", "hun"],
+            ["v", "yis"],
+            ["eg", "szu"],
+            ["eg", "wuh"],
+            ["kb", "mel"],
+            ["b", "whu"],
+            ["d", "dog"]
+        ]
+    },
+    {
+        "name": "藍二乘",
+        "artist": "ヨルシカ",
+        "bandName": "Pink Bear 粉紅熊",
+        "performers": [
+            ["v", "roo"],
+            ["eg", "shh"],
+            ["eg", "chc"],
+            ["kb", "daw"],
+            ["b", "mon"],
+            ["d", "may"]
+        ]
+    },
+    {
+        "name": "In the End",
+        "artist": "Linkin Park",
+        "bandName": "搖滾公園",
+        "performers": [
+            ["v", "pau"],
+            ["v", "wei"],
+            ["eg", "wuh"],
+            ["eg", "daw"],
+            ["kb", "daw"],
+            ["b", "won"],
+            ["d", "hon"]
+        ]
+    },
+    {
+        "name": "Sparkle",
+        "artist": "山下達郎",
+        "bandName": "週末の不務正樂",
+        "performers": [
+            ["v/eg", "yum"],
+            ["kb", "mel"],
+            ["b", "hsu"],
+            ["d", "wei"],
+            ["v", "sha"],
+            ["v", "yeh"]
+        ]
+    },
+    {
+        "name": "Flyday Chinatown",
+        "artist": "Yasuha",
+        "bandName": "週末の不務正樂",
+        "performers": [
+            ["v/eg", "yum"],
+            ["eg", "den"],
+            ["kb", "mel"],
+            ["b", "hsu"],
+            ["d", "wei"]
+        ]
+    },
+    {
+        "name": "青春病",
+        "artist": "藤井風",
+        "bandName": "週末の不務正樂",
+        "performers": [
+            ["v", "sha"],
+            ["eg", "yum"],
+            ["kb", "mel"],
+            ["b", "way"],
+            ["d", "wei"],
+            ["v", "yeh"],
+            ["v", "yum"]
+        ]
+    },
+    {
+        "name": "2103 公里之間",
+        "artist": "icyball 冰球樂團",
+        "bandName": "週末の不務正樂",
+        "performers": [
+            ["v", "yeh"],
+            ["eg", "den"],
+            ["eg/v", "yum"],
+            ["kb", "mel"],
+            ["b", "hsu"],
+            ["d", "wan"],
+            ["v", "sha"]
+        ]
+    },
+    {
+        "name": "Die With A Smile",
+        "artist": "Lady Gaga / Bruno Mars",
+        "bandName": "月影探險家",
+        "performers": [
+            ["v/eg", "cha"],
+            ["v", "wan"],
+            ["eg", "chw"],
+            ["b", "hun"],
+            ["d", "zin"]
+        ]
+    },
+    {
+        "name": "伊的身邊已經有別人",
+        "artist": "許富凱 X 血肉果汁機",
+        "bandName": "野蠻救星",
+        "performers": [
+            ["v", "pau"],
+            ["v", "fan"],
+            ["eg", "szu"],
+            ["eg", "che"],
+            ["kb", "roo"],
+            ["b", "whu"],
+            ["d", "dog"]
+        ]
+    },
+    {
         "name": "だから僕わ音楽を辞めだ",
         "translatedName": "所以我放棄了音樂",
         "artist": "ヨルシカ",
@@ -27,154 +171,15 @@
         ]
     },
     {
-        "name": "Subtitle",
-        "artist": "髭男dism",
-        "bandName": "Mirai 未來樂團",
+        "name": "共生",
+        "artist": "王艷薇",
+        "bandName": "戴著毛線帽的貓",
         "performers": [
-            ["v", "yeh"],
-            ["eg", "sht"],
-            ["eg", "che"],
-            ["kb", "mel"],
+            ["v", "wen"],
+            ["eg", "zhy"],
+            ["kb", "daw"],
             ["b", "zhe"],
-            ["d", "dog"]
-        ]
-    },
-    {
-        "name": "失蹤人口",
-        "artist": "甜約翰",
-        "bandName": "迷幻森林",
-        "performers": [
-            ["v", "hun"],
-            ["v", "yis"],
-            ["eg", "szu"],
-            ["eg", "sht"],
-            ["kb", "mel"],
-            ["b", "whu"],
-            ["d", "dog"]
-        ]
-    },
-    {
-        "name": "藍二乘",
-        "artist": "ヨルシカ",
-        "bandName": "pink bear 粉紅熊",
-        "performers": [
-            ["v", "yis"],
-            ["eg", "shh"],
-            ["kb", "daw"],
-            ["b", "mon"],
-            ["d", "may"]
-        ]
-    },
-    {
-        "name": "We are",
-        "artist": "ONE OK ROCK",
-        "bandName": "光樂團",
-        "performers": [
-            ["v", "wei"],
-            ["eg", "pan"],
-            ["b", "lim"],
-            ["d", "lic"]
-        ]
-    },
-    {
-        "name": "In the End",
-        "artist": "Linkin Park",
-        "bandName": "搖滾公園",
-        "performers": [
-            ["v", "pau"],
-            ["v", "wei"],
-            ["eg", "daw"],
-            ["eg", "wuh"],
-            ["kb", "daw"],
-            ["b", "won"],
-            ["d", "hon"]
-        ]
-    },
-    {
-        "name": "Sparkle",
-        "artist": "山下達郎",
-        "bandName": "週末の不務正樂",
-        "performers": [
-            ["v/eg", "yum"],
-            ["kb", "mel"],
-            ["b", "hsu"],
-            ["d", "wei"]
-        ]
-    },
-    {
-        "name": "Flyday Chinatown",
-        "artist": "Yasuha",
-        "bandName": "週末の不務正樂",
-        "performers": [
-            ["v/eg", "yum"],
-            ["eg", "den"],
-            ["kb", "mel"],
-            ["b", "hsu"],
-            ["d", "wei"]
-        ]
-    },
-    {
-        "name": "青春病",
-        "artist": "藤井風",
-        "bandName": "週末の不務正樂",
-        "performers": [
-            ["v", "sha"],
-            ["eg", "yum"],
-            ["kb", "mel"],
-            ["b", "way"],
-            ["d", "wei"]
-        ]
-    },
-    {
-        "name": "2103 公里之間",
-        "artist": "icyball 冰球樂團",
-        "bandName": "週末の不務正樂",
-        "performers": [
-            ["v", "yeh"],
-            ["eg", "den"],
-            ["eg", "yum"],
-            ["kb", "mel"],
-            ["b", "hsu"],
-            ["d", "wan"]
-        ]
-    },
-    {
-        "name": "伊的身邊已經有別人",
-        "artist": "許富凱 X 血肉果汁機",
-        "bandName": "野蠻救星",
-        "performers": [
-            ["v", "pau"],
-            ["v", "fan"],
-            ["eg", "szu"],
-            ["eg", "jia"],
-            ["kb", "roo"],
-            ["b", "whu"],
-            ["d", "dog"]
-        ]
-    },
-    {
-        "name": "I Want My Tears Back",
-        "artist": "Nightwish",
-        "bandName": "冰島伏特加",
-        "performers": [
-            ["v", "mel"],
-            ["eg/v", "che"],
-            ["kb", "daw"],
-            ["b", "mon"],
-            ["d", "dog"]
-        ]
-    },
-    {
-        "name": "BanG Dream!",
-        "artist": "Ave Mujica",
-        "bandName": "夢想家 Dream walker",
-        "performers": [
-            ["v", "mel"],
-            ["eg", "szu"],
-            ["eg", "jia"],
-            ["kb", "yis"],
-            ["b", "fan"],
-            ["d", "wei"]
+            ["d", "zin"]
         ]
     },
     {
@@ -185,65 +190,61 @@
             ["v", "wan"],
             ["eg", "zhy"],
             ["eg", "sht"],
-            ["kb", "yis"],
+            ["kb", "mel"],
             ["b", "hsu"],
             ["d", "wei"]
         ]
     },
     {
-        "name": "共生",
-        "artist": "王艷薇",
-        "bandName": "奇異果樂團",
+        "name": "Subtitle",
+        "artist": "髭男dism",
+        "bandName": "LivePatch 靜默更新",
         "performers": [
-            ["v", "wen"],
-            ["eg", "yan"],
-            ["kb", "daw"],
-            ["b", "tan"],
-            ["d", "zin"]
+            ["v", "yeh"],
+            ["eg", "sht"],
+            ["eg", "che"],
+            ["kb", "mel"],
+            ["b", "zhe"],
+            ["d", "dog"],
+            ["v", "sha"],
+            ["v", "yum"]
         ]
     },
     {
         "name": "你給過我的快樂",
         "artist": "胡凱兒",
-        "bandName": "廢物先生",
+        "bandName": "Who Knows 胡諾斯",
         "performers": [
             ["v", "lic"],
             ["eg", "shy"],
+            ["eg", "wuh"],
             ["b", "zhe"],
             ["d", "may"]
         ]
     },
     {
-        "name": "Bunny Girl",
-        "artist": "AKASAKI",
-        "bandName": "城市旅人 city traveller",
+        "name": "We are",
+        "artist": "ONE OK ROCK",
+        "bandName": "光樂團",
         "performers": [
-            ["v", "sha"],
-            ["eg", "shy"],
-            ["b", "tan"],
-            ["d", "woj"]
-        ]
-    },
-    {
-        "name": "Die With A Smile",
-        "artist": "Lady Gaga / Bruno Mars",
-        "bandName": "月影探險家",
-        "performers": [
-            ["v/eg", "cha"],
-            ["v", "wan"],
-            ["eg", "chw"],
-            ["b", "tan"],
-            ["d", "zin"]
+            ["v", "wei"],
+            ["eg", "pan"],
+            ["eg", "che"],
+            ["b", "lim"],
+            ["d", "lic"],
+            ["v", "pau"],
+            ["v", "roo"]
         ]
     },
     {
         "name": "Beautiful Things",
         "artist": "Benson Boone",
-        "bandName": "南方公園",
+        "bandName": "迷途指南針 The Broken Compass",
         "performers": [
             ["v", "cha"],
             ["eg", "daw"],
             ["eg", "sht"],
+            ["b", "lim"],
             ["d", "bei"]
         ]
     },
@@ -256,7 +257,21 @@
             ["eg", "daw"],
             ["eg", "che"],
             ["kb", "daw"],
+            ["b", "lim"],
             ["d", "bei"]
+        ]
+    },
+    {
+        "name": "BanG Dream!",
+        "artist": "Ave Mujica",
+        "bandName": "夢想家 Dream walker",
+        "performers": [
+            ["v", "mel"],
+            ["eg", "szu"],
+            ["eg", "che"],
+            ["kb", "yis"],
+            ["b", "fan"],
+            ["d", "wei"]
         ]
     },
     {
