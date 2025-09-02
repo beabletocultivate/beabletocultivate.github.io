@@ -30,7 +30,7 @@ function Performer(props: {
     const { position, performerId } = props;
     const performer = performersJson.find(p => p.id === performerId);
     return (performer &&
-        (<div className="text-md bg-background text-on-primary rounded-full px-2 py-1 font-serif flex gap-1 items-center">
+        (<div className="text-md bg-background text-on-primary rounded-full px-2 py-1 font-serif flex gap-1 items-center text-center">
             {position.split('/').map(positionToIcon)}
             {
                 performer.link ?
@@ -71,11 +71,12 @@ function Song(props: {
                         }
                     </h2>
                     <p className="text-lg text-on-primary-variant">{song.artist}</p>
-                    {/* Performers */}
                     <div className="flex flex-wrap gap-2 mt-2">
-                        <div className="text-md bg-primary-variant text-background rounded-full px-2 py-1 font-serif">
+                        {/* Band name */}
+                        <div className="text-md bg-primary-variant text-background rounded-full px-2 py-1 font-serif text-center">
                             {song.bandName}
                         </div>
+                        {/* Performers */}
                         {Array.isArray(song.performers) && song.performers.map(([position, performerId]) => (
                             <Performer
                                 key={position + '-' + performerId}
