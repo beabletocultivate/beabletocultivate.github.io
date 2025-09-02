@@ -17,6 +17,17 @@ export function Welcome() {
       <img src={fieldsImage} alt="Fields" className="absolute w-full h-full object-cover animate-fields-brighten" />
       <img src={notesImage} alt="Notes" className="absolute w-full h-full right-0 object-cover object-right animate-notes-sweep" />
 
+      {/* Instagram link */}
+      <div className="absolute right-8 top-10 text-right text-on-primary-variant">
+        <a
+          href="https://www.instagram.com/be.able.to.cultivate/"
+          target="_blank"
+          className="font-serif text-xl underline hover:brightness-90 cursor-pointer"
+        >
+          {strings.cultivateInstagram}
+        </a>
+      </div>
+
       <div className="absolute top-1/2 md:left-12 transform -translate-y-24 flex flex-col items-center md:items-start gap-6 not-md:w-screen">
         {/* Title */}
         <div className="flex flex-col items-start gap-1">

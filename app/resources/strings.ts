@@ -9,6 +9,7 @@ const program = "節目表";
 const readInformation = `查看${information}`;
 const readProgram = `查看${program}`;
 const intermission = "— 中場休息 —";
+const cultivateInstagram = "@be.able.to.cultivate";
 
 /** Event information */
 const eventVenueTitle = "地點";
@@ -34,6 +35,7 @@ export default {
     readInformation,
     readProgram,
     intermission,
+    cultivateInstagram,
 
     eventVenueTitle,
     eventVenue,
