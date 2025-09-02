@@ -2,7 +2,7 @@
   "name": "cultivate-2025",
   "private": true,
   "type": "module",
-  "homepage": "https://elisedc.github.io/cultivate-2025",
+  "homepage": "https://beabletocultivate.github.io/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "cp -r build/client/* build/ && cp build/index.html build/404.html && gh-pages -d build",
