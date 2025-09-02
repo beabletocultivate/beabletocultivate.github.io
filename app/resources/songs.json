@@ -6,7 +6,7 @@
         "performers": [
             ["v", "mel"],
             ["eg/v", "che"],
-            ["kb", "daw"],
+            ["kb", "wda"],
             ["b", "mon"],
             ["d", "dog"]
         ]
@@ -33,7 +33,7 @@
             ["eg", "szu"],
             ["eg", "wuh"],
             ["kb", "mel"],
-            ["b", "whu"],
+            ["b", "kol"],
             ["d", "dog"]
         ]
     },
@@ -45,7 +45,7 @@
             ["v", "roo"],
             ["eg", "shh"],
             ["eg", "chc"],
-            ["kb", "daw"],
+            ["kb", "wda"],
             ["b", "mon"],
             ["d", "may"]
         ]
@@ -58,8 +58,8 @@
             ["v", "pau"],
             ["v", "wei"],
             ["eg", "wuh"],
-            ["eg", "daw"],
-            ["kb", "daw"],
+            ["eg", "lda"],
+            ["kb", "wda"],
             ["b", "won"],
             ["d", "hon"]
         ]
@@ -95,12 +95,11 @@
         "bandName": "週末の不務正樂",
         "performers": [
             ["v", "sha"],
-            ["eg", "yum"],
+            ["eg/v", "yum"],
             ["kb", "mel"],
             ["b", "way"],
             ["d", "wei"],
-            ["v", "yeh"],
-            ["v", "yum"]
+            ["v", "yeh"]
         ]
     },
     {
@@ -139,7 +138,7 @@
             ["eg", "szu"],
             ["eg", "che"],
             ["kb", "roo"],
-            ["b", "whu"],
+            ["b", "kol"],
             ["d", "dog"]
         ]
     },
@@ -177,7 +176,7 @@
         "performers": [
             ["v", "wen"],
             ["eg", "zhy"],
-            ["kb", "daw"],
+            ["kb", "wda"],
             ["b", "zhe"],
             ["d", "zin"]
         ]
@@ -242,7 +241,7 @@
         "bandName": "迷途指南針 The Broken Compass",
         "performers": [
             ["v", "cha"],
-            ["eg", "daw"],
+            ["eg", "lda"],
             ["eg", "sht"],
             ["b", "lim"],
             ["d", "bei"]
@@ -254,9 +253,9 @@
         "bandName": "南方公園",
         "performers": [
             ["v", "woj"],
-            ["eg", "daw"],
+            ["eg", "lda"],
             ["eg", "che"],
-            ["kb", "daw"],
+            ["kb", "wda"],
             ["b", "lim"],
             ["d", "bei"]
         ]
