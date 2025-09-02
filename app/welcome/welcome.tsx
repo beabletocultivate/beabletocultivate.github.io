@@ -31,14 +31,14 @@ export function Welcome() {
         <div className="flex flex-col md:flex-row items-center gap-4">
           <Link to="/program">
             <button
-              className="bg-background text-on-primary font-serif rounded-full text-2xl transition hover:brightness-105 p-4 opacity-0 animate-fade-up-delay-1 cursor-pointer"
+              className="bg-on-primary text-on-secondary font-serif rounded-full text-2xl transition hover:brightness-105 p-4 opacity-0 animate-fade-up-delay-1 cursor-pointer"
             >
               {strings.readProgram}
             </button>
           </Link>
           <Link to="/information">
             <button
-              className="bg-on-primary text-on-secondary font-serif rounded-full text-2xl transition hover:brightness-105 p-4 opacity-0 animate-fade-up-delay-1 cursor-pointer"
+              className="bg-background text-on-primary font-serif rounded-full text-2xl transition hover:brightness-105 p-4 opacity-0 animate-fade-up-delay-1 cursor-pointer"
             >
               {strings.readInformation}
             </button>
