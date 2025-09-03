@@ -118,6 +118,9 @@ export default function Program() {
                 <h1 className="text-5xl lg:text-7xl text-center text-on-primary mb-4">
                     {strings.program}
                 </h1>
+                <p className="text-lg text-on-primary-variant brightness-110 text-start mt-8 px-12 font-serif">
+                    {strings.followUsOnInstagram}
+                </p>
                 {songsJson.map((songInfo, index) => (
                     <Song key={index} song={songInfo} index={index} />))}
                 <img src={fieldsImage} alt="Fields" className="object-contain -mt-28 pointer-events-none" />
