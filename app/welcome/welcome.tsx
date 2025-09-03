@@ -5,7 +5,7 @@ import './welcome.css';
 
 import Menu from '../menu/menu';
 import strings from '../resources/strings';
-import skyImage from '../resources/sky.png';
+import skyImage from '../resources/sky.jpg';
 import sunImage from '../resources/sun.png';
 import fieldsImage from '../resources/fields.png';
 import notesImage from '../resources/notes.png';

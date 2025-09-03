@@ -4,7 +4,7 @@ import './program.css';
 import Menu from '../menu/menu';
 import bassIcon from '../resources/bass.png';
 import strings from '../resources/strings';
-import skyImage from '../resources/sky.png';
+import skyImage from '../resources/sky.jpg';
 import fieldsImage from '../resources/fields.png';
 import songsJson from '../resources/songs.json';
 import performersJson from '../resources/performers.json';

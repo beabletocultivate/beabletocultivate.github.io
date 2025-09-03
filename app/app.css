@@ -21,11 +21,7 @@
 
 html,
 body {
-  @apply bg-background dark:bg-background-dark;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  @apply bg-background;
 }
 
 h1,
