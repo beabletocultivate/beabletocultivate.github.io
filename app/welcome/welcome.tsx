@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 
+import type { Route } from "./+types/welcome";
 import './welcome.css';
 
 import Menu from '../menu/menu';
@@ -8,8 +9,13 @@ import skyImage from '../resources/sky.png';
 import sunImage from '../resources/sun.png';
 import fieldsImage from '../resources/fields.png';
 import notesImage from '../resources/notes.png';
+import { defaultMeta } from "../meta";
 
-export function Welcome() {
+export function meta({ }: Route.MetaArgs) {
+  return defaultMeta();
+}
+
+export default function Welcome() {
   return (
     <main className="relative w-screen h-screen overflow-hidden">
       <img src={skyImage} alt="Sky" className="absolute w-full h-full object-cover animate-sky-brighten" />

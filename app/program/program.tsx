@@ -1,3 +1,6 @@
+import type { Route } from './+types/program';
+import './program.css';
+
 import Menu from '../menu/menu';
 import bassIcon from '../resources/bass.png';
 import strings from '../resources/strings';
@@ -5,8 +8,13 @@ import skyImage from '../resources/sky.png';
 import fieldsImage from '../resources/fields.png';
 import songsJson from '../resources/songs.json';
 import performersJson from '../resources/performers.json';
+import { defaultMeta } from "../meta";
 
 const INTERMISSION_AFTER_SONG = 10;
+
+export function meta({ }: Route.MetaArgs) {
+  return defaultMeta();
+}
 
 function Performer(props: {
     position: string,

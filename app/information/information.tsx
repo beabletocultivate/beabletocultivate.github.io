@@ -1,8 +1,14 @@
+import type { Route } from './+types/information';
 import './information.css';
 
 import Menu from "../menu/menu";
 import strings from "../resources/strings";
 import cultivateBg from "../resources/cultivate-bg.jpg";
+import { defaultMeta } from "../meta";
+
+export function meta({ }: Route.MetaArgs) {
+    return defaultMeta();
+}
 
 function Map() {
     const mapsApiKey = import.meta.env.VITE_MAPS_API_KEY;
