@@ -1,0 +1,21 @@
+:root {
+    background-color: #36354d;
+
+    --masonry-gap-size: 20px;
+}
+
+.slash-grid {
+  display: flex;
+  margin-left: calc(-1 * var(--masonry-gap-size)); /* gutter size offset */
+  width: auto;
+}
+
+.slash-grid_column {
+  padding-left: var(--masonry-gap-size); /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style each child item */
+.slash-grid_column > div {
+  margin-bottom: var(--masonry-gap-size);
+}

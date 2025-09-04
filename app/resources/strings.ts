@@ -8,6 +8,8 @@ const information = "演出資訊";
 const program = "節目表";
 const readInformation = `查看${information}`;
 const readProgram = `查看${program}`;
+const slash = "/斜槓區/";
+const slashDescription = "來看看我們的表演者們在生活中的多重身分吧！";
 const intermission = "— 中場休息 —";
 const cultivateInstagram = "@be.able.to.cultivate";
 const followUsOnInstagram = "📱 點擊表演者名稱可查看他們的 IG 帳號！";
@@ -35,6 +37,8 @@ export default {
     program,
     readInformation,
     readProgram,
+    slash,
+    slashDescription,
     intermission,
     cultivateInstagram,
     followUsOnInstagram,

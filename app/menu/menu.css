@@ -1,5 +1,5 @@
 :root {
-    --animation-duration: 0.1s;
+    --menu-animation-duration: 0.1s;
 }
 
 @keyframes fade-in {
@@ -13,11 +13,11 @@
 }
 
 .fade-in {
-  animation: fade-in var(--animation-duration) ease-in forwards;
+  animation: fade-in var(--menu-animation-duration) ease-in forwards;
 }
 
 .fade-out {
-  animation: fade-out var(--animation-duration) ease-out forwards;
+  animation: fade-out var(--menu-animation-duration) ease-out forwards;
 }
 
 .icon-dark {
@@ -34,9 +34,9 @@
 }
 
 .spin-open {
-  animation: spin-open var(--animation-duration) cubic-bezier(0.4,0,0.2,1) forwards;
+  animation: spin-open var(--menu-animation-duration) cubic-bezier(0.4,0,0.2,1) forwards;
 }
 
 .spin-close {
-  animation: spin-close var(--animation-duration) cubic-bezier(0.4,0,0.2,1) forwards;
+  animation: spin-close var(--menu-animation-duration) cubic-bezier(0.4,0,0.2,1) forwards;
 }

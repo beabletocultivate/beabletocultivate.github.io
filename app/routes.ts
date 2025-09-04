@@ -4,4 +4,5 @@ export default [
     index("welcome/welcome.tsx"),
     route("program", "program/program.tsx"),
     route("information", "information/information.tsx"),
+    route("slash", "slash/slash.tsx"),
 ] satisfies RouteConfig;
