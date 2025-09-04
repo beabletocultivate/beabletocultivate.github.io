@@ -9,9 +9,9 @@ import fields from "../resources/fields.png";
 import strings from '../resources/strings';
 
 const instagramPosts = [
-  "https://www.instagram.com/p/CB5FBbaHhal/",
-  "https://www.instagram.com/p/DM46gqaPYTs/",
-  "https://www.instagram.com/reel/DCbi2L9yw9U/",
+  "https://www.instagram.com/p/CB5FBbaHhal/", // joywhenflowers
+  "https://www.instagram.com/p/DM24NMLPTqX/", // paw.and.pastry
+  "https://www.instagram.com/reel/DCbi2L9yw9U/", // be.able.to.cultivate
 ];
 
 export default function Slash() {
@@ -19,13 +19,13 @@ export default function Slash() {
     <>
       <img src={sky} alt="Sky" className="absolute w-svw h-svh object-cover brightness-30 contrast-120 hue-rotate-190 saturate-50" />
       <img src={fields} alt="Fields" className="absolute w-svw h-svh object-cover brightness-30 contrast-110 hue-rotate-190 saturate-50" />
-      <div className="absolute w-svw h-svh pb-28 lg:px-32 overflow-y-auto">
+      <div className="absolute w-svw h-svh pb-8 lg:px-32 overflow-y-auto">
         <h1 className="text-5xl lg:text-6xl text-center text-gray-50 mt-8 mb-8">
           {strings.slash}
         </h1>
-        <h3 className="text-lg font-sans text-gray-300 text-center px-4 mb-8">
+        <p className="text-lg text-gray-300 text-center px-4 mb-8">
           {strings.slashDescription}
-        </h3>
+        </p>
         <Masonry
           breakpointCols={{ default: 2, 700: 1 }}
           className="slash-grid"
@@ -35,6 +35,9 @@ export default function Slash() {
             <InstagramEmbed key={url} url={url} />
           ))}
         </Masonry>
+        <div className="text-sm text-gray-300 text-center">
+          Made with ♥ by <a href="https://github.com/elisedc" target="_blank" className="underline">Elise</a>
+        </div>
       </div>
       <Menu style="dark" />
     </>
