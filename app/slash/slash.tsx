@@ -11,6 +11,7 @@ import strings from '../resources/strings';
 const instagramPosts = [
   "https://www.instagram.com/p/CB5FBbaHhal/", // joywhenflowers
   "https://www.instagram.com/p/DM24NMLPTqX/", // paw.and.pastry
+  "https://www.instagram.com/p/DN8Qbm3Efqf/", // solune.crystal
   "https://www.instagram.com/reel/DCbi2L9yw9U/", // be.able.to.cultivate
 ];
 
