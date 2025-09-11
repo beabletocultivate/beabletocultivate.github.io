@@ -3,10 +3,16 @@ import './slash.css';
 import { InstagramEmbed } from 'react-social-media-embed';
 import Masonry from 'react-masonry-css';
 
+import type { Route } from "./+types/slash";
 import Menu from '../menu/menu';
 import sky from "../resources/sky.jpg";
 import fields from "../resources/fields.png";
 import strings from '../resources/strings';
+import { defaultMeta } from "../meta";
+
+export function meta({ }: Route.MetaArgs) {
+  return defaultMeta();
+}
 
 const instagramPosts = [
   "https://www.instagram.com/p/CB5FBbaHhal/", // joywhenflowers
