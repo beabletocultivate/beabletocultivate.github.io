@@ -19,6 +19,7 @@ const instagramPosts = [
   "https://www.instagram.com/p/DM24NMLPTqX/", // paw.and.pastry
   "https://www.instagram.com/p/DN8Qbm3Efqf/", // solune.crystal
   "https://www.instagram.com/p/CzFj0nCvTF8/", // chih_yi_lin_0814
+  "https://www.instagram.com/p/DNoedH4z13d/", // mong114
   "https://www.instagram.com/p/DH_Ox8Dz_g-/", // nl___art
   "https://www.instagram.com/p/DOdx8uSEt9a/", // starry.lightening
 ];
