@@ -53,7 +53,7 @@
     {
         "name": "In the End",
         "artist": "Linkin Park",
-        "bandName": "搖滾公園",
+        "bandName": "7號出口",
         "performers": [
             ["v", "pau"],
             ["v", "wei"],
@@ -131,7 +131,7 @@
     {
         "name": "伊的身邊已經有別人",
         "artist": "許富凱 X 血肉果汁機",
-        "bandName": "野蠻救星",
+        "bandName": "P&P 樂團",
         "performers": [
             ["v", "pau"],
             ["v", "fan"],
@@ -224,7 +224,7 @@
     {
         "name": "We are",
         "artist": "ONE OK ROCK",
-        "bandName": "光樂團",
+        "bandName": "Nyz",
         "performers": [
             ["v", "wei"],
             ["eg", "pan"],
@@ -263,7 +263,7 @@
     {
         "name": "BanG Dream!",
         "artist": "Ave Mujica",
-        "bandName": "夢想家 Dream walker",
+        "bandName": "阿貝母雞抖",
         "performers": [
             ["v", "mel"],
             ["eg", "szu"],
