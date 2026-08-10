@@ -233,25 +233,29 @@ function Song(props: {
 
     return (
         <div className="w-full max-w-4xl mx-auto px-4 my-2.5">
-            <div className="song-card rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 border border-white/10 hover:border-primary/40 shadow-md">
+            <div className="song-card relative rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 border border-white/10 hover:border-primary/40 shadow-md">
+                {/* Top-Right Genre Badge */}
+                {badgeText && (
+                    <div className="absolute top-4 right-4 md:top-5 md:right-6 z-10">
+                        <span className="text-[11px] md:text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary px-3 py-0.5 md:px-3.5 md:py-1 rounded-full shadow-sm inline-block">
+                            ✦ {badgeText}
+                        </span>
+                    </div>
+                )}
+
                 {/* Song order / Japanese Track Badge */}
-                <div className="flex md:flex-col items-center justify-between md:justify-center flex-shrink-0">
-                    <div className="flex flex-col items-center">
-                        <span className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase">TRACK</span>
-                        <span className="text-4xl md:text-5xl font-maru font-bold text-gradient-sunset w-14 text-center">
+                <div className="flex items-center md:flex-col md:justify-center flex-shrink-0">
+                    <div className="flex flex-col items-start md:items-center">
+                        <span className="text-[10px] md:text-xs font-mono text-primary-variant/70 tracking-widest uppercase">TRACK</span>
+                        <span className="text-3xl md:text-5xl font-maru font-bold text-gradient-sunset w-12 md:w-14 text-left md:text-center">
                             {String(index + 1).padStart(2, '0')}
                         </span>
                     </div>
-                    {badgeText && (
-                        <span className="md:hidden text-xs text-text-subtle font-maru">
-                            {badgeText}
-                        </span>
-                    )}
                 </div>
 
                 {/* Song info */}
-                <div className="flex-1 flex flex-col items-start min-w-0">
-                    <div className="flex flex-wrap items-baseline gap-2">
+                <div className="flex-1 flex flex-col items-start min-w-0 pr-0 md:pr-24">
+                    <div className="flex flex-wrap items-baseline gap-2 max-w-[calc(100%-80px)] md:max-w-none">
                         <h2 className="text-xl md:text-2xl font-maru font-bold text-white tracking-wide">
                             {song.name}
                         </h2>
@@ -265,16 +269,8 @@ function Song(props: {
                         {song.artist}
                     </p>
 
-                    {/* Genre & Performers */}
+                    {/* Performers list */}
                     <div className="flex flex-wrap items-center gap-2 mt-3.5">
-                        {/* Japanese Live House Genre / Style Badge */}
-                        {badgeText && (
-                            <span className="text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary px-3.5 py-1 rounded-full shadow-sm">
-                                ✦ {badgeText}
-                            </span>
-                        )}
-
-                        {/* Performer list */}
                         {Array.isArray(song.performers) &&
                             song.performers.map(([position, name]) => (
                                 <Performer
