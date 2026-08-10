@@ -10,29 +10,50 @@ import songsJson from '../resources/songs.json';
 import { getInstagramUrl, instagramHandles } from '../resources/socials';
 import { defaultMeta } from "../meta";
 
-const INTERMISSION_AFTER_SONG = 10;
+const INTERMISSION_AFTER_SONG = 9;
 
 export function meta({ }: Route.MetaArgs) {
   return defaultMeta();
 }
 
 function positionToDisplay(pos: string) {
-    switch (pos) {
+    const p = pos.toLowerCase();
+    switch (p) {
         case 'v':
             return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span title="Vocal">🎤</span>Vo.</span>;
         case 'eg':
+        case 'gt':
             return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span title="Electric Guitar">🎸</span>Gt.</span>;
+        case 'eg2':
+        case 'gt2':
+            return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span title="Guitar 2">🎸</span>Gt.2</span>;
+        case 'ag':
+            return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span title="Acoustic Guitar">🪕</span>AG</span>;
         case 'b':
+        case 'bs':
             return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><img src={bassIcon} alt="Bass" className="h-3.5 w-3.5 filter invert opacity-90 inline-block" />Ba.</span>;
         case 'd':
+        case 'dr':
             return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span title="Drums">🥁</span>Dr.</span>;
         case 'kb':
             return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span title="Keyboard">🎹</span>Key.</span>;
-        case 'eg/v':
-            return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span>🎸🎤</span>Gt./Vo.</span>;
+        case 'cho':
+            return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span title="Chorus">🎙️</span>Cho.</span>;
+        case '二胡':
+        case 'erhu':
+            return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span title="二胡">🎻</span>二胡</span>;
+        case '非洲鼓':
+        case 'djembe':
+            return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span title="非洲鼓">🪘</span>非洲鼓</span>;
+        case 'special':
+            return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span title="Special">✦</span>Band</span>;
+        case 'v/gt':
         case 'v/eg':
             return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span>🎤🎸</span>Vo./Gt.</span>;
+        case 'v/ag':
+            return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span>🎤🪕</span>Vo./AG</span>;
         case 'v/d':
+        case 'v/dr':
             return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span>🎤🥁</span>Vo./Dr.</span>;
         default:
             return <span key={pos} className="font-mono text-[11px]">{pos}</span>;
@@ -69,7 +90,7 @@ function PerformerModal(props: {
                 name: song.name,
                 translatedName: song.translatedName,
                 artist: song.artist,
-                bandName: song.bandName,
+                genre: (song as any).genre || (song as any).bandName,
                 roles: matchingRoles.map(([r]) => r)
             }];
         }
@@ -151,7 +172,7 @@ function PerformerModal(props: {
                                         )}
                                     </h4>
                                     <p className="text-xs text-primary-variant/90 truncate">
-                                        {track.artist} • <span className="text-text-muted">{track.bandName}</span>
+                                        {track.artist} {track.genre && <>• <span className="text-text-muted">{track.genre}</span></>}
                                     </p>
                                 </div>
                             </div>
@@ -200,13 +221,16 @@ function Song(props: {
         name: string;
         translatedName?: string;
         artist: string;
-        bandName: string;
+        genre?: string;
+        bandName?: string;
         performers: string[][];
     };
     index: number;
     onSelectPerformer: (name: string) => void;
 }) {
     const { song, index, onSelectPerformer } = props;
+    const badgeText = song.genre || song.bandName;
+
     return (
         <div className="w-full max-w-4xl mx-auto px-4 my-2.5">
             <div className="glass-card song-card rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 border border-white/10 hover:border-primary/40">
@@ -218,9 +242,11 @@ function Song(props: {
                             {String(index + 1).padStart(2, '0')}
                         </span>
                     </div>
-                    <span className="md:hidden text-xs text-text-subtle font-maru">
-                        {song.bandName}
-                    </span>
+                    {badgeText && (
+                        <span className="md:hidden text-xs text-text-subtle font-maru">
+                            {badgeText}
+                        </span>
+                    )}
                 </div>
 
                 {/* Song info */}
@@ -239,12 +265,14 @@ function Song(props: {
                         {song.artist}
                     </p>
 
-                    {/* Band & Performers */}
+                    {/* Genre & Performers */}
                     <div className="flex flex-wrap items-center gap-2 mt-3.5">
-                        {/* Japanese Live House Band Badge */}
-                        <span className="text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary px-3.5 py-1 rounded-full shadow-sm">
-                            ✦ {song.bandName}
-                        </span>
+                        {/* Japanese Live House Genre / Style Badge */}
+                        {badgeText && (
+                            <span className="text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary px-3.5 py-1 rounded-full shadow-sm">
+                                ✦ {badgeText}
+                            </span>
+                        )}
 
                         {/* Performer list */}
                         {Array.isArray(song.performers) &&
