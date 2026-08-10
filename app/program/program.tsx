@@ -28,7 +28,7 @@ function positionToDisplay(pos: string) {
         case 'gt2':
             return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span title="Guitar 2">🎸</span>Gt.2</span>;
         case 'ag':
-            return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span title="Acoustic Guitar">🪕</span>AG</span>;
+            return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span title="Acoustic Guitar">🎸</span>AG</span>;
         case 'b':
         case 'bs':
             return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><img src={bassIcon} alt="Bass" className="h-3.5 w-3.5 filter invert opacity-90 inline-block" />Ba.</span>;
@@ -51,7 +51,7 @@ function positionToDisplay(pos: string) {
         case 'v/eg':
             return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span>🎤🎸</span>Vo./Gt.</span>;
         case 'v/ag':
-            return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span>🎤🪕</span>Vo./AG</span>;
+            return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span>🎤🎸</span>Vo./AG</span>;
         case 'v/d':
         case 'v/dr':
             return <span key={pos} className="inline-flex items-center gap-1 font-mono text-[11px]"><span>🎤🥁</span>Vo./Dr.</span>;
