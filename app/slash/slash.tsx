@@ -5,8 +5,7 @@ import Masonry from 'react-masonry-css';
 
 import type { Route } from "./+types/slash";
 import Menu from '../menu/menu';
-import sky from "../resources/sky.jpg";
-import fields from "../resources/fields.png";
+import nikkeiSky from "../resources/nikkei-sky-clean.png";
 import strings from '../resources/strings';
 import { defaultMeta } from "../meta";
 
@@ -26,30 +25,58 @@ const instagramPosts = [
 
 export default function Slash() {
   return (
-    <>
-      <img src={sky} alt="Sky" className="absolute w-svw h-svh object-cover brightness-30 contrast-120 hue-rotate-190 saturate-50" />
-      <img src={fields} alt="Fields" className="absolute w-svw h-svh object-cover brightness-30 contrast-110 hue-rotate-190 saturate-50" />
-      <div className="absolute w-svw h-svh pb-8 lg:px-32 overflow-y-auto">
-        <h1 className="text-5xl lg:text-6xl text-center text-gray-50 mt-8 mb-8">
-          {strings.slash}
-        </h1>
-        <p className="text-lg text-gray-300 text-center px-4 mb-8">
-          {strings.slashDescription}
-        </p>
-        <Masonry
-          breakpointCols={{ default: 2, 700: 1 }}
-          className="slash-grid"
-          columnClassName="slash-grid_column"
-        >
-          {instagramPosts.map(url => (
-            <InstagramEmbed key={url} url={url} />
-          ))}
-        </Masonry>
-        <div className="text-sm text-gray-300 text-center">
-          Made with ♥ by <a href="https://github.com/elisedc" target="_blank" className="underline">Elise</a>
+    <div className="relative min-h-screen w-full bg-background overflow-x-hidden text-text-main pb-20">
+      {/* Background Layer */}
+      <div className="fixed inset-0 pointer-events-none">
+        <img
+          src={nikkeiSky}
+          alt="Twilight Background"
+          className="w-full h-full object-cover opacity-35 filter blur-[2px]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background/95" />
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 container mx-auto px-4 pt-20 max-w-5xl flex flex-col items-center">
+        {/* Header */}
+        <div className="text-center max-w-xl mb-10">
+          <div className="jp-badge mb-3">
+            <span>✦</span>
+            <span>SLASH ZONE // パラレルキャリア</span>
+            <span>✦</span>
+          </div>
+          <h1 className="text-5xl md:text-7xl font-title tracking-tight text-gradient-sunset mb-3 drop-shadow">
+            {strings.slash}
+          </h1>
+          <p className="text-base md:text-lg text-text-muted px-4 font-maru">
+            {strings.slashDescription}
+          </p>
+        </div>
+
+        {/* Masonry Feed */}
+        <div className="w-full max-w-4xl">
+          <Masonry
+            breakpointCols={{ default: 2, 768: 1 }}
+            className="slash-grid"
+            columnClassName="slash-grid_column"
+          >
+            {instagramPosts.map((url) => (
+              <div key={url} className="glass-card rounded-2xl overflow-hidden p-2.5 border border-white/10 hover:border-primary/40 transition-all duration-300 shadow-xl flex justify-center">
+                <InstagramEmbed url={url} width="100%" />
+              </div>
+            ))}
+          </Masonry>
+        </div>
+
+        {/* Footer */}
+        <div className="mt-16 text-center text-xs text-text-subtle font-maru">
+          <p>Made with ♥ by <a href="https://github.com/elisedc" target="_blank" rel="noopener noreferrer" className="underline text-primary-variant hover:text-white transition-colors">Elise</a></p>
         </div>
       </div>
-      <Menu style="dark" />
-    </>
+
+      <Menu />
+    </div>
   );
 }
+
+

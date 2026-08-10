@@ -4,8 +4,7 @@ import './program.css';
 import Menu from '../menu/menu';
 import bassIcon from '../resources/bass.png';
 import strings from '../resources/strings';
-import skyImage from '../resources/sky.jpg';
-import fieldsImage from '../resources/fields.png';
+import nikkeiSky from '../resources/nikkei-sky-clean.png';
 import songsJson from '../resources/songs.json';
 import performersJson from '../resources/performers.json';
 import { defaultMeta } from "../meta";
@@ -16,38 +15,62 @@ export function meta({ }: Route.MetaArgs) {
   return defaultMeta();
 }
 
+interface PerformerItem {
+    id: string;
+    name: string;
+    link?: string;
+}
+
+const performersList = performersJson as PerformerItem[];
+
 function Performer(props: {
     position: string,
     performerId: string
 }) {
-    function positionToIcon(position: string) {
-        switch (position) {
+    function positionToDisplay(pos: string) {
+        switch (pos) {
             case 'v':
-                return <span key={position}>🎤</span>;
+                return <span key={pos} className="flex items-center gap-1 font-mono text-[11px]"><span title="Vocal">🎤</span>Vo.</span>;
             case 'eg':
-                return <span key={position}>🎸</span>;
+                return <span key={pos} className="flex items-center gap-1 font-mono text-[11px]"><span title="Electric Guitar">🎸</span>Gt.</span>;
             case 'b':
-                return <img key={position} src={bassIcon} className="h-5 w-5" />;
+                return <span key={pos} className="flex items-center gap-1 font-mono text-[11px]"><img src={bassIcon} alt="Bass" className="h-3.5 w-3.5 filter invert opacity-90 inline-block" />Ba.</span>;
             case 'd':
-                return <span key={position}>🥁</span>;
+                return <span key={pos} className="flex items-center gap-1 font-mono text-[11px]"><span title="Drums">🥁</span>Dr.</span>;
             case 'kb':
-                return <span key={position}>🎹</span>;
+                return <span key={pos} className="flex items-center gap-1 font-mono text-[11px]"><span title="Keyboard">🎹</span>Key.</span>;
+            case 'eg/v':
+                return <span key={pos} className="flex items-center gap-1 font-mono text-[11px]"><span>🎸🎤</span>Gt./Vo.</span>;
+            case 'v/eg':
+                return <span key={pos} className="flex items-center gap-1 font-mono text-[11px]"><span>🎤🎸</span>Vo./Gt.</span>;
+            case 'v/d':
+                return <span key={pos} className="flex items-center gap-1 font-mono text-[11px]"><span>🎤🥁</span>Vo./Dr.</span>;
             default:
-                return undefined;
+                return <span key={pos} className="font-mono text-[11px]">{pos}</span>;
         }
     }
 
     const { position, performerId } = props;
-    const performer = performersJson.find(p => p.id === performerId);
-    return (performer &&
-        (<div className="text-md bg-background text-on-primary rounded-full px-2 py-1 font-serif flex gap-1 items-center text-center">
-            {position.split('/').map(positionToIcon)}
-            {
-                performer.link ?
-                    <a href={performer.link} className="underline text-on-primary-variant" target="_blank">{performer.name}</a>
-                    : performer.name
-            }
-        </div>)
+    const performer = performersList.find(p => p.id === performerId);
+    if (!performer) return null;
+
+    return (
+        <div className="text-xs bg-background-dark/85 text-text-muted hover:text-white border border-white/10 hover:border-primary/50 rounded-full px-3 py-1 font-maru flex items-center gap-1.5 transition-all duration-200">
+            <span className="text-primary-variant/90">{positionToDisplay(position)}</span>
+            <span className="text-white/30">|</span>
+            {performer.link ? (
+                <a
+                    href={performer.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary-variant underline decoration-primary/40 underline-offset-2 transition-colors font-medium"
+                >
+                    {performer.name}
+                </a>
+            ) : (
+                <span className="font-medium text-white/90">{performer.name}</span>
+            )}
+        </div>
     );
 }
 
@@ -58,74 +81,126 @@ function Song(props: {
         artist: string;
         bandName: string;
         performers: string[][];
-    }, index: number
+    };
+    index: number;
 }) {
     const { song, index } = props;
     return (
-        <div className="mx-4">
-            <div className="flex items-center gap-8 p-4 my-1">
-                {/* Song order */}
-                <h1 className="text-6xl text-on-primary font-bold w-16 text-center flex-shrink-0">
-                    {index + 1}
-                </h1>
-                <div className="flex flex-col items-start">
-                    {/* Song name & artist */}
-                    <h2 className="text-2xl text-on-primary">
-                        {song.name}
-                        {
-                            song.translatedName && (
-                                <span className="text-xl font-normal text-on-primary-variant">
-                                    （{song.translatedName}）
-                                </span>
-                            )
-                        }
-                    </h2>
-                    <p className="text-lg text-on-primary-variant">{song.artist}</p>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                        {/* Band name */}
-                        <div className="text-md bg-primary-variant text-background rounded-full px-2 py-1 font-serif text-center">
-                            {song.bandName}
-                        </div>
-                        {/* Performers */}
-                        {Array.isArray(song.performers) && song.performers.map(([position, performerId]) => (
-                            <Performer
-                                key={position + '-' + performerId}
-                                position={position}
-                                performerId={performerId}
-                            />
-                        ))}
+        <div className="w-full max-w-4xl mx-auto px-4 my-2.5">
+            <div className="glass-card song-card rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 border border-white/10 hover:border-primary/40">
+                {/* Song order / Japanese Track Badge */}
+                <div className="flex md:flex-col items-center justify-between md:justify-center flex-shrink-0">
+                    <div className="flex flex-col items-center">
+                        <span className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase">TRACK</span>
+                        <span className="text-4xl md:text-5xl font-maru font-bold text-gradient-sunset w-14 text-center">
+                            {String(index + 1).padStart(2, '0')}
+                        </span>
+                    </div>
+                    <span className="md:hidden text-xs text-text-subtle font-maru">
+                        {song.bandName}
+                    </span>
+                </div>
+
+                {/* Song info */}
+                <div className="flex-1 flex flex-col items-start min-w-0">
+                    <div className="flex flex-wrap items-baseline gap-2">
+                        <h2 className="text-xl md:text-2xl font-maru font-bold text-white tracking-wide">
+                            {song.name}
+                        </h2>
+                        {song.translatedName && (
+                            <span className="text-sm md:text-base font-maru font-normal text-text-muted">
+                                （{song.translatedName}）
+                            </span>
+                        )}
+                    </div>
+                    <p className="text-sm md:text-base text-primary-variant font-maru font-medium mt-0.5">
+                        {song.artist}
+                    </p>
+
+                    {/* Band & Performers */}
+                    <div className="flex flex-wrap items-center gap-2 mt-3.5">
+                        {/* Japanese Live House Band Badge */}
+                        <span className="text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary px-3.5 py-1 rounded-full shadow-sm">
+                            ✦ {song.bandName}
+                        </span>
+
+                        {/* Performer list */}
+                        {Array.isArray(song.performers) &&
+                            song.performers.map(([position, performerId]) => (
+                                <Performer
+                                    key={position + '-' + performerId}
+                                    position={position}
+                                    performerId={performerId}
+                                />
+                            ))}
                     </div>
                 </div>
             </div>
-            {index === INTERMISSION_AFTER_SONG ?
-                <div className="text-3xl text-on-primary font-bold font-serif text-center mt-10 mb-8">
-                    {strings.intermission}
-                </div> :
-                index < songsJson.length - 1 && (
-                    <hr className="border-t border-on-primary-variant opacity-30" />
-                )}
+
+            {/* Japanese Intermission Break Banner */}
+            {index === INTERMISSION_AFTER_SONG && (
+                <div className="my-8 py-6 px-6 rounded-2xl glass-panel text-center border border-primary/35 glow-primary">
+                    <span className="text-xs uppercase tracking-[0.25em] text-primary-variant font-maru font-bold block mb-1">
+                        ── ✦ 休憩 TIME ✦ ──
+                    </span>
+                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-gradient-sunset tracking-wider">
+                        {strings.intermission}
+                    </h3>
+                    <p className="text-xs text-text-muted font-maru mt-1">
+                        ドリンクを片手に、後半のステージをお楽しみに！
+                    </p>
+                </div>
+            )}
         </div>
-    )
+    );
 }
 
 export default function Program() {
     return (
-        <div style={{ 'backgroundImage': `url(${skyImage})` }} className="relative overflow-y-auto w-svw h-svh bg-cover bg-center">
-            <div className="absolute w-full h-full flex flex-col">
-                <h3 className="text-2xl lg:text-3xl text-on-primary-variant text-center mt-8 mb-2">
-                    {strings.eventFullName}
-                </h3>
-                <h1 className="text-5xl lg:text-7xl text-center text-on-primary mb-4">
-                    {strings.program}
-                </h1>
-                <p className="text-lg text-on-primary-variant brightness-110 text-start mt-8 px-12 font-serif">
-                    {strings.followUsOnInstagram}
-                </p>
-                {songsJson.map((songInfo, index) => (
-                    <Song key={index} song={songInfo} index={index} />))}
-                <img src={fieldsImage} alt="Fields" className="object-contain -mt-28 pointer-events-none" />
+        <div className="relative min-h-screen w-full bg-background overflow-x-hidden text-text-main pb-24">
+            {/* Japanese Anime Sky Atmosphere */}
+            <div className="fixed inset-0 pointer-events-none">
+                <img
+                    src={nikkeiSky}
+                    alt="Anime Twilight Sky"
+                    className="w-full h-full object-cover opacity-35 filter blur-[1px]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background/95" />
             </div>
+
+            {/* Content Container */}
+            <div className="relative z-10 container mx-auto px-4 pt-20 flex flex-col items-center">
+                {/* Japanese Timetable Header */}
+                <div className="text-center max-w-xl mb-8">
+                    <div className="jp-badge mb-3">
+                        <span>✦</span>
+                        <span>TIMETABLE // タイムテーブル</span>
+                        <span>✦</span>
+                    </div>
+                    <h1 className="text-5xl md:text-7xl font-title tracking-tight text-gradient-sunset mb-2 drop-shadow">
+                        {strings.program}
+                    </h1>
+                    <p className="text-sm md:text-base text-text-muted font-maru mt-2">
+                        {strings.followUsOnInstagram}
+                    </p>
+                </div>
+
+                {/* Song List */}
+                <div className="w-full">
+                    {songsJson.map((songInfo, index) => (
+                        <Song key={index} song={songInfo} index={index} />
+                    ))}
+                </div>
+
+                {/* Japanese Footer Tag */}
+                <div className="mt-16 text-center text-xs text-text-subtle font-maru">
+                    <p>© {strings.eventYear} {strings.eventName} // {strings.eventJpName} • {strings.eventVenue}</p>
+                </div>
+            </div>
+
             <Menu />
         </div>
-    )
+    );
 }
+
+

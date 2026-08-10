@@ -1,8 +1,10 @@
 const eventName = "耕云祭";
-const eventYear = "2025";
+const eventYear = "2026";
 const eventFullName = `${eventName} ${eventYear}`;
 const eventEngName = "Cultivate";
 const eventEngFullName = `${eventEngName} ${eventYear}`;
+const eventJpName = "カルティベイト 2026";
+const eventTagline = "音と言葉を、心に耕す日。";
 const homePage = "首頁";
 const information = "演出資訊";
 const program = "節目表";
@@ -16,10 +18,10 @@ const followUsOnInstagram = "📱 點擊表演者名稱可查看他們的 IG 帳
 
 /** Event information */
 const eventVenueTitle = "地點";
-const eventVenue = "凝聚力音樂娛樂 Cohesion Space";
-const eventVenueAddress = "台北市松山區八德路三段 106 巷 1 號 B1";
+const eventVenue = "PIPE Live Music";
+const eventVenueAddress = "台北市中正區思源街 1 號（公館水岸廣場）";
 const eventDateTitle = "時間";
-const eventDate = "2025 年 9 月 14 日（日）";
+const eventDate = "2026 年 9 月 13 日（日）";
 const eventTime = "11:20 入場・11:50 演出開始";
 const eventAddToCalendar = "加入行事曆";
 const eventTicketTitle = "票價";
@@ -32,6 +34,8 @@ export default {
     eventFullName,
     eventEngName,
     eventEngFullName,
+    eventJpName,
+    eventTagline,
     homePage,
     information,
     program,
@@ -55,3 +59,4 @@ export default {
     eventBuyTickets,
     // Add any additional strings here as needed
 };
+

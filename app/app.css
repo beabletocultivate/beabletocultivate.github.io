@@ -1,31 +1,121 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Noto Sans", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: "UoqMunThenKhung", ui-serif, Georgia, Cambria, "Times New Roman", Times,
-    serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Zen Maru Gothic", "Plus Jakarta Sans", "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Shippori Mincho", "Noto Serif TC", ui-serif, Georgia, serif;
+  --font-maru: "Zen Maru Gothic", sans-serif;
+  --font-title: "Dela Gothic One", "Kaisei Decol", "Zen Maru Gothic", sans-serif;
 
-  /* Colors */
-  --color-primary: #E8B14D;
-  --color-primary-variant: #C97F4A;
-  --color-on-primary: #5C3A2E;
-  --color-on-primary-variant: #835241;
-  --color-secondary: #E8923B;
-  --color-secondary-variant: #A5A661;
-  --color-on-secondary: #FFEFCF;
-  --color-background: #FCF8A8;
-  --color-background-dark: #5C3A2E;
-  --color-menu-background: #000000A0;
+  /* Japanese Twilight Horizon Palette (茜色・山吹・藤色・群青) */
+  --color-background: #111022;
+  --color-background-dark: #0A0914;
+  --color-background-card: rgba(26, 23, 48, 0.72);
+  --color-background-card-hover: rgba(38, 33, 70, 0.85);
+  --color-background-glass: rgba(22, 19, 42, 0.82);
+
+  --color-primary: #FF6E54;          /* 茜色 Akane Sunset */
+  --color-primary-hover: #FF856E;
+  --color-primary-variant: #F9C354;  /* 山吹色 Yamabuki Gold */
+  
+  --color-secondary: #DF5998;        /* 撫子色 Nadeshiko Pink/Magenta */
+  --color-secondary-hover: #F070AF;
+  --color-secondary-variant: #6CC5EB;/* 浅葱色 Asagi Twilight Blue */
+  --color-accent-purple: #B288D4;    /* 藤色 Fuji Violet */
+  
+  --color-on-primary: #FFFFFF;
+  --color-on-primary-dark: #111022;
+  --color-on-primary-variant: #FFF4D2;
+  --color-on-secondary: #FFF0F6;
+
+  --color-text-main: #FAF9FD;
+  --color-text-muted: #BCB6D8;
+  --color-text-subtle: #7E77A0;
+
+  --color-menu-background: rgba(10, 9, 20, 0.94);
 }
 
 html,
 body {
-  @apply bg-background;
+  @apply bg-background text-text-main font-sans selection:bg-primary selection:text-white;
+  letter-spacing: 0.02em;
 }
 
 h1,
 h2,
 h3 {
   font-family: var(--font-serif);
+}
+
+/* Japanese Editorial Utilities */
+.font-maru {
+  font-family: var(--font-maru);
+}
+
+.font-title {
+  font-family: var(--font-title);
+}
+
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Glassmorphism & Soft Japanese Lighting */
+.glass-panel {
+  background: var(--color-background-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-card {
+  background: var(--color-background-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card:hover {
+  background: var(--color-background-card-hover);
+  border-color: rgba(249, 195, 84, 0.35);
+}
+
+.glow-primary {
+  box-shadow: 0 0 28px rgba(255, 110, 84, 0.32);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 28px rgba(223, 89, 152, 0.32);
+}
+
+.glow-amber {
+  box-shadow: 0 0 24px rgba(249, 195, 84, 0.3);
+}
+
+.text-gradient-sunset {
+  background: linear-gradient(135deg, #FFF4D2 0%, #F9C354 30%, #FF6E54 70%, #DF5998 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #FFF8E7 0%, #F9C354 50%, #FF856E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.jp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-family: var(--font-maru);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  background: rgba(249, 195, 84, 0.12);
+  border: 1px solid rgba(249, 195, 84, 0.28);
+  color: var(--color-primary-variant);
+  backdrop-filter: blur(8px);
 }

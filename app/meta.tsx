@@ -1,6 +1,6 @@
 export function defaultMeta() {
   return [
-    { title: "耕云祭 2025" },
-    { name: "description", content: "Welcome to Cultivate 2025!" },
+    { title: "耕云祭 2026" },
+    { name: "description", content: "Welcome to Cultivate 2026!" },
   ];
 }
