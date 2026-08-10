@@ -85,6 +85,16 @@ function PerformerModal(props: {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [performerName]);
 
+    // Lock background body scroll when modal is open
+    useEffect(() => {
+        if (!performerName) return;
+        const originalOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = originalOverflow;
+        };
+    }, [performerName]);
+
     if (!performerName) return null;
 
     const instagramUrl = getInstagramUrl(performerName);
@@ -109,11 +119,9 @@ function PerformerModal(props: {
     return (
         <div 
             className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex items-center justify-center p-4 ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
-            onClick={handleClose}
         >
             <div 
                 className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[85vh] ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
-                onClick={(e) => e.stopPropagation()}
             >
                 {/* Close Button */}
                 <button
@@ -262,6 +270,16 @@ function SongModal(props: {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [selectedSong, totalSongs]);
 
+    // Lock background body scroll when modal is open
+    useEffect(() => {
+        if (!selectedSong) return;
+        const originalOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = originalOverflow;
+        };
+    }, [selectedSong]);
+
     if (!selectedSong) return null;
 
     const { song, index } = selectedSong;
@@ -289,13 +307,11 @@ function SongModal(props: {
 
     return (
         <div 
-            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex flex-col items-center justify-center p-3 pb-20 md:p-4 md:pb-24 ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
-            onClick={handleClose}
+            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex flex-col items-center justify-center p-3 pb-20 md:p-4 md:pb-24 touch-pan-x overscroll-none ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
         >
             {/* Modal Dialog Card */}
             <div 
-                className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[70vh] md:max-h-[76vh] overflow-hidden select-none ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
-                onClick={(e) => e.stopPropagation()}
+                className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[70vh] md:max-h-[76vh] overflow-hidden select-none touch-pan-x overscroll-none ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
             >
@@ -340,7 +356,7 @@ function SongModal(props: {
                     </div>
 
                     {/* Scrollable Content */}
-                    <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-5">
+                    <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-5 touch-pan-x overscroll-contain">
                         {/* Song Description */}
                         <div>
                             <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-2 px-1">
