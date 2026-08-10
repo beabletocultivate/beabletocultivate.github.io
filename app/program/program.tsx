@@ -247,8 +247,7 @@ function SongModal(props: {
 }) {
     const { selectedSong, totalSongs, onClose, onNavigate, onSelectPerformer } = props;
     const [direction, setDirection] = useState<'right' | 'left'>('right');
-    const [touchStartX, setTouchStartX] = useState<number | null>(null);
-
+    const [touchStartPos, setTouchStartPos] = useState<{ x: number; y: number } | null>(null);
     const [isClosing, setIsClosing] = useState(false);
 
     const handleClose = () => {
@@ -303,30 +302,39 @@ function SongModal(props: {
     const hasPrev = index > 0;
     const hasNext = index < totalSongs - 1;
 
-    // Mobile touch swipe gesture handlers
+    // Mobile touch swipe gesture handlers (smart axis detection)
     const handleTouchStart = (e: React.TouchEvent) => {
-        setTouchStartX(e.targetTouches[0].clientX);
+        setTouchStartPos({
+            x: e.targetTouches[0].clientX,
+            y: e.targetTouches[0].clientY,
+        });
     };
 
     const handleTouchEnd = (e: React.TouchEvent) => {
-        if (touchStartX === null) return;
+        if (!touchStartPos) return;
         const touchEndX = e.changedTouches[0].clientX;
-        const diff = touchStartX - touchEndX;
-        if (diff > 45 && hasNext) {
-            handleNavigate(index + 1); // Swiped left -> next song
-        } else if (diff < -45 && hasPrev) {
-            handleNavigate(index - 1); // Swiped right -> prev song
+        const touchEndY = e.changedTouches[0].clientY;
+        const diffX = touchStartPos.x - touchEndX;
+        const diffY = touchStartPos.y - touchEndY;
+
+        // Trigger horizontal swipe ONLY if the swipe is predominantly horizontal
+        if (Math.abs(diffX) > Math.abs(diffY) * 1.3 && Math.abs(diffX) > 40) {
+            if (diffX > 0 && hasNext) {
+                handleNavigate(index + 1); // Swiped left -> next song
+            } else if (diffX < 0 && hasPrev) {
+                handleNavigate(index - 1); // Swiped right -> prev song
+            }
         }
-        setTouchStartX(null);
+        setTouchStartPos(null);
     };
 
     return (
         <div 
-            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex flex-col items-center justify-center p-3 pb-20 md:p-4 md:pb-24 touch-pan-x overscroll-none ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
+            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex flex-col items-center justify-center p-3 pb-20 md:p-4 md:pb-24 ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
         >
             {/* Modal Dialog Card */}
             <div 
-                className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[70vh] md:max-h-[76vh] overflow-hidden select-none touch-pan-x overscroll-none ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
+                className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[72vh] md:max-h-[78vh] overflow-hidden select-none ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
             >
@@ -371,7 +379,7 @@ function SongModal(props: {
                     </div>
 
                     {/* Scrollable Content */}
-                    <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-5 touch-pan-x overscroll-contain">
+                    <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-5 overscroll-contain">
                         {/* Song Description */}
                         <div>
                             <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-2 px-1">
