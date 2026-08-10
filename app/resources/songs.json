@@ -3,7 +3,7 @@
         "name": "INDESTRUCTIBLE",
         "artist": "Disturbed",
         "genre": "Nu-Metal / Heavy Rock",
-        "description": "美國重金屬樂團 Disturbed 於 2008 年發行的經典重金屬神曲。強烈狂暴的吉他 Riff 與充滿力量的鼓點節奏，展現無堅不摧、百折不撓的強大意志，作為耕云祭上半場的開場震撼全場！",
+        "description": "美國重金屬樂團 Disturbed 於 2008 年發行的經典重金屬神曲。強烈狂暴的吉他 Riff 與充滿力量的鼓點節奏，展現無堅不摧、百折不撓的強大意志。",
         "performers": [
             ["V", "王瑞逸"],
             ["GT", "潘品翰"],
@@ -86,7 +86,7 @@
         "name": "Hello",
         "artist": "麋先生",
         "genre": "Indie Rock / Alt-Rock",
-        "description": "金曲樂團麋先生 MIXER 的熱血力作。粗獷又充滿溫度的搖滾唱腔，搭配雙吉他的熱力切分，向台下每一位熱愛音樂的朋友大聲打招呼，傳遞最純粹的現場感染力。",
+        "description": "金曲樂團麋先生 MIXER 的熱血代表作。熱力奔放的吉他切分與充滿溫度的搖滾旋律，向台下每一位熱愛音樂的朋友大聲打招呼，傳遞最純粹的現場感染力！",
         "performers": [
             ["V", "魏子翔"],
             ["GT", "李安鈜"],
@@ -132,7 +132,7 @@
         "name": "Brave Heart",
         "artist": "和田光司",
         "genre": "Anime OST / J-Rock",
-        "description": "《數碼寶貝大冒險》最經典的熱血進化曲！只要前奏響起就能瞬間喚醒童年勇氣與感動，激昂的吉他獨奏與全力以赴的吶喊，為上半場演出畫下最完美的句點！",
+        "description": "《數碼寶貝大冒險》最經典的熱血進化曲！只要前奏響起就能瞬間喚醒童年勇氣與感動，充滿激昂的吉他獨奏與全力以赴的熱血吶喊。",
         "performers": [
             ["V", "鄭安志"],
             ["EG", "陳志嘉"],
@@ -145,7 +145,7 @@
         "name": "Take a Look Around",
         "artist": "Limp Bizkit",
         "genre": "Nu-Metal / Rap Rock",
-        "description": "美國 Nu-Metal 霸主 Limp Bizkit 為電影《不可能的任務 2》創作的主題曲，融合經典 5/4 拍 MI 主題旋律與重裝嘻哈金屬重低音，重磅揭開下半場序幕！",
+        "description": "美國 Nu-Metal 霸主 Limp Bizkit 為電影《不可能的任務 2》創作的主題曲，巧妙融合經典 5/4 拍主題旋律與重裝嘻哈金屬重低音。",
         "performers": [
             ["V", "葉又銘"],
             ["V", "魏子翔"],
@@ -246,7 +246,7 @@
         "name": "革命道中",
         "artist": "AiNA THE END",
         "genre": "J-Rock / Alt-Pop",
-        "description": "前 BiSH 主唱、日本搖滾歌姬 AiNA THE END 的震撼力作。獨特沙啞且極具爆發力的撕裂嗓音，搭配強烈劇烈起伏的搖滾節奏，唱出衝破黑暗的革命決心。",
+        "description": "融合了戲劇性強烈的日系暗黑搖滾色彩，層層推進的器樂編排與強烈的節奏起伏交織，在跌宕的旋律中展現衝破黑暗與迷霧的堅定意志。",
         "performers": [
             ["V", "鄭德馨"],
             ["GT", "唯媛"],
@@ -289,7 +289,7 @@
         "name": "挪威的森林",
         "artist": "伍佰",
         "genre": "Classic Rock / Taiwanese Rock",
-        "description": "搖滾天王伍佰 & China Blue 傳唱三十年的華語搖滾史詩。靈感來自村上春樹同名小說，迷人的吉他前奏與滄桑深情的台式搖滾唱腔，作為全場常規曲目的壓軸再合適不過！",
+        "description": "伍佰 & China Blue 傳唱三十年的經典華語搖滾史詩。靈感來自村上春樹同名小說，融合迷人的吉他前奏與深刻動人的台式搖滾旋律。",
         "performers": [
             ["V/GT", "謝又安"],
             ["Bs", "Chen"],
