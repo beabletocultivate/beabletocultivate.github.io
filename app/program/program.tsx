@@ -89,10 +89,13 @@ function PerformerModal(props: {
     // Lock background body scroll when modal is open
     useEffect(() => {
         if (!performerName) return;
-        const originalOverflow = document.body.style.overflow;
+        const originalBodyOverflow = document.body.style.overflow;
+        const originalHtmlOverflow = document.documentElement.style.overflow;
         document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
         return () => {
-            document.body.style.overflow = originalOverflow;
+            document.body.style.overflow = originalBodyOverflow;
+            document.documentElement.style.overflow = originalHtmlOverflow;
         };
     }, [performerName]);
 
@@ -119,10 +122,10 @@ function PerformerModal(props: {
 
     return (
         <div 
-            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex items-center justify-center p-4 ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
+            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex items-center justify-center p-4 overflow-hidden touch-none ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
         >
             <div 
-                className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[85vh] ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
+                className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[85vh] overflow-hidden touch-auto overscroll-contain ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
             >
                 {/* Close Button */}
                 <button
@@ -166,7 +169,7 @@ function PerformerModal(props: {
                 </div>
 
                 {/* Festival Track Lineup */}
-                <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-2.5">
+                <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-2.5 overscroll-contain touch-pan-y">
                     <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-2 px-1">
                         ✦ FESTIVAL LINEUP // 出演曲目
                     </div>
@@ -284,13 +287,16 @@ function SongModal(props: {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [selectedSong, totalSongs]);
 
-    // Lock background body scroll when modal is open
+    // Lock background body and HTML scroll when modal is open
     useEffect(() => {
         if (!selectedSong) return;
-        const originalOverflow = document.body.style.overflow;
+        const originalBodyOverflow = document.body.style.overflow;
+        const originalHtmlOverflow = document.documentElement.style.overflow;
         document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
         return () => {
-            document.body.style.overflow = originalOverflow;
+            document.body.style.overflow = originalBodyOverflow;
+            document.documentElement.style.overflow = originalHtmlOverflow;
         };
     }, [selectedSong]);
 
@@ -330,11 +336,11 @@ function SongModal(props: {
 
     return (
         <div 
-            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex flex-col items-center justify-center p-3 pb-20 md:p-4 md:pb-24 ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
+            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex flex-col items-center justify-center p-3 pb-20 md:p-4 md:pb-24 overflow-hidden touch-none ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
         >
             {/* Modal Dialog Card */}
             <div 
-                className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[72vh] md:max-h-[78vh] overflow-hidden select-none ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
+                className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[72vh] md:max-h-[78vh] overflow-hidden select-none touch-auto overscroll-contain ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
             >
@@ -379,7 +385,7 @@ function SongModal(props: {
                     </div>
 
                     {/* Scrollable Content */}
-                    <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-5 overscroll-contain">
+                    <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-5 overscroll-contain touch-pan-y">
                         {/* Song Description */}
                         <div>
                             <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-2 px-1">
