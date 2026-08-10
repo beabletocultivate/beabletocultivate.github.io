@@ -1,7 +1,7 @@
 /**
- * Performer Instagram handles / social links directory.
+ * Performer Instagram handles directory.
  * Key: Performer's display name as written in songs.json
- * Value: Instagram username (e.g. "username" or "@username") or full URL
+ * Value: Instagram handle without URL (e.g. "username" or "@username")
  */
 export const instagramHandles: Record<string, string> = {
   "王瑞逸": "",
@@ -14,7 +14,7 @@ export const instagramHandles: Record<string, string> = {
   "李孟軒": "",
   "林鈺堯": "",
   "張宜蓁": "",
-  "鄭德馨": "https://www.instagram.com/sleepy_roo_/",
+  "鄭德馨": "sleepy_roo_",
   "郭桓廷": "",
   "范才悅": "",
   "博雅": "",
@@ -27,7 +27,7 @@ export const instagramHandles: Record<string, string> = {
   "葉又銘": "",
   "劉信盟": "",
   "魏子翔": "",
-  "王馨濂": "https://www.instagram.com/len_frosttears/",
+  "王馨濂": "len_frosttears",
   "劉咸慈": "",
   "唯媛": "",
   "馬譽尚": "",
@@ -39,7 +39,7 @@ export const instagramHandles: Record<string, string> = {
   "張詩汶": "",
   "林嘉榕": "",
   "鄭安志": "",
-  "陳志嘉": "https://www.instagram.com/taku_frosttears/",
+  "陳志嘉": "taku_frosttears",
   "余宣德": "",
   "王大維": "",
   "鄭唯冬": "",
@@ -56,21 +56,31 @@ export const instagramHandles: Record<string, string> = {
   "翊慈": "",
   "謝又安": "",
   "劉若眉": "",
-  "幻想旅途": "https://www.instagram.com/fantasy_journey_tw/",
-  "枋橋天台": "https://www.instagram.com/fromrooftop_/",
+  "幻想旅途": "fantasy_journey_tw",
+  "枋橋天台": "fromrooftop_",
   // Add handles for any performer as needed (e.g., "王瑞逸": "instagram_handle")
 };
 
 /**
- * Helper to get the full Instagram profile URL for a performer name.
+ * Extracts and cleans the raw Instagram handle (e.g. "username").
+ */
+export function getInstagramHandle(name: string): string | undefined {
+  let val = instagramHandles[name]?.trim();
+  if (!val) return undefined;
+
+  // If full URL was provided, extract just the handle
+  val = val.replace(/^https?:\/\/(www\.)?instagram\.com\//, "");
+  val = val.replace(/\/.*$/, ""); // strip trailing paths/slashes
+  val = val.replace(/^@/, "");
+
+  return val.trim() || undefined;
+}
+
+/**
+ * Returns the full Instagram profile URL for a performer name.
  */
 export function getInstagramUrl(name: string): string | undefined {
-  const handle = instagramHandles[name]?.trim();
+  const handle = getInstagramHandle(name);
   if (!handle) return undefined;
-
-  if (handle.startsWith("http://") || handle.startsWith("https://")) {
-    return handle;
-  }
-  const cleanHandle = handle.replace(/^@/, "");
-  return `https://www.instagram.com/${cleanHandle}/`;
+  return `https://www.instagram.com/${handle}/`;
 }
