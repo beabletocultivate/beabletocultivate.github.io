@@ -4,11 +4,11 @@
         "artist": "Nightwish",
         "bandName": "冰島伏特加 Iceland Vodka",
         "performers": [
-            ["v", "mel"],
-            ["eg/v", "che"],
-            ["kb", "wda"],
-            ["b", "mon"],
-            ["d", "dog"]
+            ["v", "Melody"],
+            ["eg/v", "Cheng"],
+            ["kb", "Wade"],
+            ["b", "Moon"],
+            ["d", "Dog"]
         ]
     },
     {
@@ -16,11 +16,11 @@
         "artist": "AKASAKI",
         "bandName": "城市旅人 City Traveller",
         "performers": [
-            ["v", "sha"],
-            ["eg", "shy"],
-            ["eg", "che"],
-            ["b", "hun"],
-            ["d", "woj"]
+            ["v", "Sharon"],
+            ["eg", "Shy"],
+            ["eg", "Cheng"],
+            ["b", "Hunter"],
+            ["d", "Woj"]
         ]
     },
     {
@@ -28,13 +28,13 @@
         "artist": "甜約翰",
         "bandName": "迷幻森林",
         "performers": [
-            ["v", "hun"],
-            ["v", "yis"],
-            ["eg", "szu"],
-            ["eg", "wuh"],
-            ["kb", "mel"],
-            ["b", "kol"],
-            ["d", "dog"]
+            ["v", "Hunter"],
+            ["v", "Yi"],
+            ["eg", "Szu"],
+            ["eg", "Wu"],
+            ["kb", "Melody"],
+            ["b", "Kol"],
+            ["d", "Dog"]
         ]
     },
     {
@@ -42,12 +42,12 @@
         "artist": "ヨルシカ",
         "bandName": "Pink Bear 粉紅熊",
         "performers": [
-            ["v", "roo"],
-            ["eg", "shh"],
-            ["eg", "chc"],
-            ["kb", "wda"],
-            ["b", "mon"],
-            ["d", "may"]
+            ["v", "Roo"],
+            ["eg", "Shih"],
+            ["eg", "Chia"],
+            ["kb", "Wade"],
+            ["b", "Moon"],
+            ["d", "May"]
         ]
     },
     {
@@ -55,13 +55,13 @@
         "artist": "Linkin Park",
         "bandName": "7號出口",
         "performers": [
-            ["v", "pau"],
-            ["v", "wei"],
-            ["eg", "wuh"],
-            ["eg", "lda"],
-            ["kb", "wda"],
-            ["b", "won"],
-            ["d", "hon"]
+            ["v", "Paul"],
+            ["v", "Wei"],
+            ["eg", "Wu"],
+            ["eg", "Linda"],
+            ["kb", "Wade"],
+            ["b", "Won"],
+            ["d", "Hon"]
         ]
     },
     {
@@ -69,12 +69,12 @@
         "artist": "山下達郎",
         "bandName": "週末の不務正樂",
         "performers": [
-            ["v/eg", "yum"],
-            ["kb", "mel"],
-            ["b", "hsu"],
-            ["d", "wei"],
-            ["v", "sha"],
-            ["v", "yeh"]
+            ["v/eg", "Yum"],
+            ["kb", "Melody"],
+            ["b", "Hsu"],
+            ["d", "Wei"],
+            ["v", "Sharon"],
+            ["v", "Yeh"]
         ]
     },
     {
@@ -82,11 +82,11 @@
         "artist": "Yasuha",
         "bandName": "週末の不務正樂",
         "performers": [
-            ["v/eg", "yum"],
-            ["eg", "den"],
-            ["kb", "mel"],
-            ["b", "hsu"],
-            ["d", "wei"]
+            ["v/eg", "Yum"],
+            ["eg", "Dennis"],
+            ["kb", "Melody"],
+            ["b", "Hsu"],
+            ["d", "Wei"]
         ]
     },
     {
@@ -94,12 +94,12 @@
         "artist": "藤井風",
         "bandName": "週末の不務正樂",
         "performers": [
-            ["v", "sha"],
-            ["eg/v", "yum"],
-            ["kb", "mel"],
-            ["b", "way"],
-            ["d", "wei"],
-            ["v", "yeh"]
+            ["v", "Sharon"],
+            ["eg/v", "Yum"],
+            ["kb", "Melody"],
+            ["b", "Wayne"],
+            ["d", "Wei"],
+            ["v", "Yeh"]
         ]
     },
     {
@@ -107,13 +107,13 @@
         "artist": "icyball 冰球樂團",
         "bandName": "週末の不務正樂",
         "performers": [
-            ["v", "yeh"],
-            ["eg", "den"],
-            ["eg/v", "yum"],
-            ["kb", "mel"],
-            ["b", "hsu"],
-            ["d", "wan"],
-            ["v", "sha"]
+            ["v", "Yeh"],
+            ["eg", "Dennis"],
+            ["eg/v", "Yum"],
+            ["kb", "Melody"],
+            ["b", "Hsu"],
+            ["d", "Wan"],
+            ["v", "Sharon"]
         ]
     },
     {
@@ -121,11 +121,11 @@
         "artist": "Lady Gaga / Bruno Mars",
         "bandName": "月影探險家",
         "performers": [
-            ["v/eg", "cha"],
-            ["v", "wan"],
-            ["eg", "chw"],
-            ["b", "hun"],
-            ["d", "zin"]
+            ["v/eg", "Charlie"],
+            ["v", "Wan"],
+            ["eg", "Chris"],
+            ["b", "Hunter"],
+            ["d", "Zin"]
         ]
     },
     {
@@ -133,13 +133,13 @@
         "artist": "許富凱 X 血肉果汁機",
         "bandName": "P&P 樂團",
         "performers": [
-            ["v", "pau"],
-            ["v", "fan"],
-            ["eg", "szu"],
-            ["eg", "che"],
-            ["kb", "roo"],
-            ["b", "kol"],
-            ["d", "dog"]
+            ["v", "Paul"],
+            ["v", "Fan"],
+            ["eg", "Szu"],
+            ["eg", "Cheng"],
+            ["kb", "Roo"],
+            ["b", "Kol"],
+            ["d", "Dog"]
         ]
     },
     {
@@ -148,12 +148,12 @@
         "artist": "ヨルシカ",
         "bandName": "夜鹿樂團",
         "performers": [
-            ["v", "roo"],
-            ["eg", "shh"],
-            ["eg", "sht"],
-            ["kb", "mel"],
-            ["b", "wuc"],
-            ["d", "dog"]
+            ["v", "Roo"],
+            ["eg", "Shih"],
+            ["eg", "Shin"],
+            ["kb", "Melody"],
+            ["b", "Wu C"],
+            ["d", "Dog"]
         ]
     },
     {
@@ -162,11 +162,11 @@
         "artist": "YOASOBI",
         "bandName": "夜鹿樂團",
         "performers": [
-            ["v", "roo"],
-            ["eg", "che"],
-            ["kb", "mel"],
-            ["b", "hsu"],
-            ["d", "sio"]
+            ["v", "Roo"],
+            ["eg", "Cheng"],
+            ["kb", "Melody"],
+            ["b", "Hsu"],
+            ["d", "Sio"]
         ]
     },
     {
@@ -174,11 +174,11 @@
         "artist": "王艷薇",
         "bandName": "戴著毛線帽的貓",
         "performers": [
-            ["v", "wen"],
-            ["eg", "zhy"],
-            ["kb", "wda"],
-            ["b", "zhe"],
-            ["d", "zin"]
+            ["v", "Wen"],
+            ["eg", "Zhi"],
+            ["kb", "Wade"],
+            ["b", "Zheng"],
+            ["d", "Zin"]
         ]
     },
     {
@@ -186,12 +186,12 @@
         "artist": "ヨルシカ",
         "bandName": "玫瑰小姐",
         "performers": [
-            ["v", "wan"],
-            ["eg", "zhy"],
-            ["eg", "sht"],
-            ["kb", "mel"],
-            ["b", "hsu"],
-            ["d", "wei"]
+            ["v", "Wan"],
+            ["eg", "Zhi"],
+            ["eg", "Shin"],
+            ["kb", "Melody"],
+            ["b", "Hsu"],
+            ["d", "Wei"]
         ]
     },
     {
@@ -199,14 +199,14 @@
         "artist": "髭男dism",
         "bandName": "LivePatch 靜默更新",
         "performers": [
-            ["v", "yeh"],
-            ["eg", "sht"],
-            ["eg", "che"],
-            ["kb", "mel"],
-            ["b", "zhe"],
-            ["d", "dog"],
-            ["v", "sha"],
-            ["v", "yum"]
+            ["v", "Yeh"],
+            ["eg", "Shin"],
+            ["eg", "Cheng"],
+            ["kb", "Melody"],
+            ["b", "Zheng"],
+            ["d", "Dog"],
+            ["v", "Sharon"],
+            ["v", "Yum"]
         ]
     },
     {
@@ -214,11 +214,11 @@
         "artist": "胡凱兒",
         "bandName": "Who Knows 胡諾斯",
         "performers": [
-            ["v", "lic"],
-            ["eg", "shy"],
-            ["eg", "wuh"],
-            ["b", "zhe"],
-            ["d", "may"]
+            ["v", "Li"],
+            ["eg", "Shy"],
+            ["eg", "Wu"],
+            ["b", "Zheng"],
+            ["d", "May"]
         ]
     },
     {
@@ -226,13 +226,13 @@
         "artist": "ONE OK ROCK",
         "bandName": "Nyz",
         "performers": [
-            ["v", "wei"],
-            ["eg", "pan"],
-            ["eg", "che"],
-            ["b", "lim"],
-            ["d", "lic"],
-            ["v", "pau"],
-            ["v", "roo"]
+            ["v", "Wei"],
+            ["eg", "Pan"],
+            ["eg", "Cheng"],
+            ["b", "Lin"],
+            ["d", "Li"],
+            ["v", "Paul"],
+            ["v", "Roo"]
         ]
     },
     {
@@ -240,11 +240,11 @@
         "artist": "Benson Boone",
         "bandName": "迷途指南針 The Broken Compass",
         "performers": [
-            ["v", "cha"],
-            ["eg", "lda"],
-            ["eg", "sht"],
-            ["b", "lim"],
-            ["d", "bei"]
+            ["v", "Charlie"],
+            ["eg", "Linda"],
+            ["eg", "Shin"],
+            ["b", "Lin"],
+            ["d", "Bei"]
         ]
     },
     {
@@ -252,12 +252,12 @@
         "artist": "Bon Jovi",
         "bandName": "南方公園",
         "performers": [
-            ["v", "woj"],
-            ["eg", "lda"],
-            ["eg", "che"],
-            ["kb", "wda"],
-            ["b", "lim"],
-            ["d", "bei"]
+            ["v", "Woj"],
+            ["eg", "Linda"],
+            ["eg", "Cheng"],
+            ["kb", "Wade"],
+            ["b", "Lin"],
+            ["d", "Bei"]
         ]
     },
     {
@@ -265,12 +265,12 @@
         "artist": "Ave Mujica",
         "bandName": "阿貝母雞抖",
         "performers": [
-            ["v", "mel"],
-            ["eg", "szu"],
-            ["eg", "che"],
-            ["kb", "yis"],
-            ["b", "fan"],
-            ["d", "wei"]
+            ["v", "Melody"],
+            ["eg", "Szu"],
+            ["eg", "Cheng"],
+            ["kb", "Yi"],
+            ["b", "Fan"],
+            ["d", "Wei"]
         ]
     },
     {
@@ -279,12 +279,12 @@
         "translatedName": "不想離開被窩",
         "bandName": "無樂遊民",
         "performers": [
-            ["v", "sha"],
-            ["v", "roo"],
-            ["v/d", "wei"],
-            ["v", "yeh"],
-            ["eg", "den"],
-            ["b", "hsu"]
+            ["v", "Sharon"],
+            ["v", "Roo"],
+            ["v/d", "Wei"],
+            ["v", "Yeh"],
+            ["eg", "Dennis"],
+            ["b", "Hsu"]
         ]
     }
 ]

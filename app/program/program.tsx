@@ -6,7 +6,7 @@ import bassIcon from '../resources/bass.png';
 import strings from '../resources/strings';
 import nikkeiSky from '../resources/nikkei-sky-clean.png';
 import songsJson from '../resources/songs.json';
-import performersJson from '../resources/performers.json';
+import { getInstagramUrl } from '../resources/socials';
 import { defaultMeta } from "../meta";
 
 const INTERMISSION_AFTER_SONG = 10;
@@ -15,17 +15,9 @@ export function meta({ }: Route.MetaArgs) {
   return defaultMeta();
 }
 
-interface PerformerItem {
-    id: string;
-    name: string;
-    link?: string;
-}
-
-const performersList = performersJson as PerformerItem[];
-
 function Performer(props: {
     position: string,
-    performerId: string
+    name: string
 }) {
     function positionToDisplay(pos: string) {
         switch (pos) {
@@ -50,25 +42,25 @@ function Performer(props: {
         }
     }
 
-    const { position, performerId } = props;
-    const performer = performersList.find(p => p.id === performerId);
-    if (!performer) return null;
+    const { position, name } = props;
+    const instagramUrl = getInstagramUrl(name);
 
     return (
         <div className="text-xs bg-background-dark/85 text-text-muted hover:text-white border border-white/10 hover:border-primary/50 rounded-full px-3 py-1 font-maru flex items-center gap-1.5 transition-all duration-200">
             <span className="text-primary-variant/90">{positionToDisplay(position)}</span>
             <span className="text-white/30">|</span>
-            {performer.link ? (
+            {instagramUrl ? (
                 <a
-                    href={performer.link}
+                    href={instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-primary-variant underline decoration-primary/40 underline-offset-2 transition-colors font-medium"
+                    className="hover:text-primary-variant underline decoration-primary/40 underline-offset-2 transition-colors font-medium flex items-center gap-1"
                 >
-                    {performer.name}
+                    <span>{name}</span>
+                    <span className="text-[10px] text-secondary opacity-80">↗</span>
                 </a>
             ) : (
-                <span className="font-medium text-white/90">{performer.name}</span>
+                <span className="font-medium text-white/90">{name}</span>
             )}
         </div>
     );
@@ -126,11 +118,11 @@ function Song(props: {
 
                         {/* Performer list */}
                         {Array.isArray(song.performers) &&
-                            song.performers.map(([position, performerId]) => (
+                            song.performers.map(([position, name]) => (
                                 <Performer
-                                    key={position + '-' + performerId}
+                                    key={position + '-' + name}
                                     position={position}
-                                    performerId={performerId}
+                                    name={name}
                                 />
                             ))}
                     </div>
