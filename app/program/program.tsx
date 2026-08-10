@@ -195,6 +195,175 @@ function PerformerModal(props: {
     );
 }
 
+function SongModal(props: {
+    selectedSong: {
+        song: {
+            name: string;
+            translatedName?: string;
+            artist: string;
+            genre?: string;
+            bandName?: string;
+            description?: string;
+            performers: string[][];
+        };
+        index: number;
+    } | null;
+    totalSongs: number;
+    onClose: () => void;
+    onNavigate: (newIndex: number) => void;
+    onSelectPerformer: (name: string) => void;
+}) {
+    const { selectedSong, totalSongs, onClose, onNavigate, onSelectPerformer } = props;
+
+    // Handle Keyboard events (Escape to close, ArrowLeft/Right to flip songs)
+    useEffect(() => {
+        if (!selectedSong) return;
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                onClose();
+            } else if (e.key === 'ArrowLeft') {
+                if (selectedSong.index > 0) {
+                    onNavigate(selectedSong.index - 1);
+                }
+            } else if (e.key === 'ArrowRight') {
+                if (selectedSong.index < totalSongs - 1) {
+                    onNavigate(selectedSong.index + 1);
+                }
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [selectedSong, totalSongs, onClose, onNavigate]);
+
+    if (!selectedSong) return null;
+
+    const { song, index } = selectedSong;
+    const badgeText = song.genre || song.bandName;
+    const description = song.description;
+    const hasPrev = index > 0;
+    const hasNext = index < totalSongs - 1;
+
+    return (
+        <div 
+            className="fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex flex-col items-center justify-center p-3 pb-20 md:p-4 md:pb-24 animate-fade-up"
+            onClick={onClose}
+        >
+            {/* Modal Dialog Card */}
+            <div 
+                className="glass-panel modal-scale-in w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[70vh] md:max-h-[76vh] overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+            >
+                {/* Close Button */}
+                <button
+                    onClick={onClose}
+                    aria-label="Close modal"
+                    className="absolute top-5 right-5 w-9 h-9 rounded-full glass-card flex items-center justify-center text-text-muted hover:text-white hover:border-primary/50 transition-all duration-200 cursor-pointer z-10"
+                >
+                    ✕
+                </button>
+
+                {/* Song Header */}
+                <div className="flex flex-col items-start pt-2 pb-4 border-b border-white/10 pr-10">
+                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                        <span className="text-xs font-mono text-primary-variant font-bold tracking-widest uppercase bg-primary-variant/15 border border-primary-variant/30 px-2.5 py-0.5 rounded-full">
+                            TRACK {String(index + 1).padStart(2, '0')}
+                        </span>
+                        {badgeText && (
+                            <span className="text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary px-3 py-0.5 rounded-full shadow-sm">
+                                ✦ {badgeText}
+                            </span>
+                        )}
+                    </div>
+
+                    <h2 className="text-2xl md:text-3xl font-title text-gradient-sunset tracking-wide">
+                        {song.name}
+                    </h2>
+                    {song.translatedName && (
+                        <p className="text-sm text-text-muted font-maru mt-0.5">
+                            （{song.translatedName}）
+                        </p>
+                    )}
+                    <p className="text-sm md:text-base text-primary-variant font-maru font-medium mt-1">
+                        原唱：{song.artist}
+                    </p>
+                </div>
+
+                {/* Scrollable Content */}
+                <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-5">
+                    {/* Song Description */}
+                    <div>
+                        <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-2 px-1">
+                            ✦ SONG STORY // 曲目簡介
+                        </div>
+                        <div className="glass-card rounded-2xl p-4 md:p-5 border border-white/10 text-sm md:text-base text-text-main font-maru leading-relaxed bg-background-dark/70">
+                            {description || "這首歌曲將在 2026 耕云祭 4.0 現場帶來充滿感染力的樂團演出，敬請期待！"}
+                        </div>
+                    </div>
+
+                    {/* Performer Lineup */}
+                    <div>
+                        <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-2 px-1">
+                            ✦ STAGE LINEUP // 演出人員
+                        </div>
+                        <div className="flex flex-wrap items-center gap-2">
+                            {Array.isArray(song.performers) &&
+                                song.performers.map(([position, name]) => (
+                                    <Performer
+                                        key={position + '-' + name}
+                                        position={position}
+                                        name={name}
+                                        onSelect={(pName) => {
+                                            onClose();
+                                            onSelectPerformer(pName);
+                                        }}
+                                    />
+                                ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Minimalist Floating Track Navigator */}
+            <div 
+                className="fixed bottom-5 md:bottom-7 left-1/2 -translate-x-1/2 flex items-center gap-4 px-4 py-1.5 rounded-full bg-[#0A0914]/85 backdrop-blur-xl border border-white/15 shadow-xl select-none z-50 animate-fade-up"
+                onClick={(e) => e.stopPropagation()}
+            >
+                <button
+                    type="button"
+                    disabled={!hasPrev}
+                    onClick={() => hasPrev && onNavigate(index - 1)}
+                    aria-label="Previous track"
+                    className={`w-7 h-7 flex items-center justify-center text-lg font-bold transition-all ${
+                        !hasPrev 
+                            ? "opacity-20 cursor-not-allowed text-white/30" 
+                            : "text-text-muted hover:text-white hover:scale-110 active:scale-90 cursor-pointer"
+                    }`}
+                >
+                    ‹
+                </button>
+
+                <span className="text-xs font-mono tracking-widest text-text-muted font-medium min-w-[60px] text-center">
+                    <span className="text-white font-bold">{index + 1}</span> / {totalSongs}
+                </span>
+
+                <button
+                    type="button"
+                    disabled={!hasNext}
+                    onClick={() => hasNext && onNavigate(index + 1)}
+                    aria-label="Next track"
+                    className={`w-7 h-7 flex items-center justify-center text-lg font-bold transition-all ${
+                        !hasNext 
+                            ? "opacity-20 cursor-not-allowed text-white/30" 
+                            : "text-text-muted hover:text-white hover:scale-110 active:scale-90 cursor-pointer"
+                    }`}
+                >
+                    ›
+                </button>
+            </div>
+        </div>
+    );
+}
+
 function Performer(props: {
     position: string;
     name: string;
@@ -205,9 +374,12 @@ function Performer(props: {
     return (
         <button
             type="button"
-            onClick={() => onSelect(name)}
+            onClick={(e) => {
+                e.stopPropagation();
+                onSelect(name);
+            }}
             title={`點擊查看 ${name} 的出演曲目與個人檔案`}
-            className="text-xs bg-background-dark/85 text-text-muted hover:text-white border border-white/10 hover:border-primary/60 hover:bg-background-dark rounded-full px-3 py-1 font-maru flex items-center gap-1.5 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer glow-hover"
+            className="text-xs bg-background-dark/85 text-text-muted hover:text-white border border-white/10 hover:border-primary/60 hover:bg-background-dark rounded-full px-3 py-1 font-maru flex items-center gap-1.5 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer glow-hover relative z-10"
         >
             <span className="text-primary-variant/90">{positionToDisplay(position)}</span>
             <span className="text-white/30">|</span>
@@ -223,40 +395,46 @@ function Song(props: {
         artist: string;
         genre?: string;
         bandName?: string;
+        description?: string;
         performers: string[][];
     };
     index: number;
     onSelectPerformer: (name: string) => void;
+    onSelectSong: (item: { song: any; index: number }) => void;
 }) {
-    const { song, index, onSelectPerformer } = props;
+    const { song, index, onSelectPerformer, onSelectSong } = props;
     const badgeText = song.genre || song.bandName;
 
     return (
         <div className="w-full max-w-4xl mx-auto px-4 my-2.5">
-            <div className="song-card relative rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 border border-white/10 hover:border-primary/40 shadow-md">
+            <div 
+                onClick={() => onSelectSong({ song, index })}
+                title="點擊查看曲目簡介"
+                className="song-card relative rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 border border-white/10 hover:border-primary/45 hover:bg-background-card-hover/90 shadow-md cursor-pointer transition-all duration-200 group active:scale-[0.995]"
+            >
                 {/* Top-Right Genre Badge */}
                 {badgeText && (
                     <div className="absolute top-4 right-4 md:top-5 md:right-6 z-10">
-                        <span className="text-[11px] md:text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary px-3 py-0.5 md:px-3.5 md:py-1 rounded-full shadow-sm inline-block">
+                        <span className="text-[11px] md:text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary group-hover:from-primary group-hover:to-secondary px-3 py-0.5 md:px-3.5 md:py-1 rounded-full shadow-sm inline-block transition-all duration-200">
                             ✦ {badgeText}
                         </span>
                     </div>
                 )}
 
                 {/* Song order / Japanese Track Badge */}
-                <div className="flex items-center md:flex-col md:justify-center flex-shrink-0">
-                    <div className="flex flex-col items-start md:items-center">
-                        <span className="text-[10px] md:text-xs font-mono text-primary-variant/70 tracking-widest uppercase">TRACK</span>
-                        <span className="text-3xl md:text-5xl font-maru font-bold text-gradient-sunset w-12 md:w-14 text-left md:text-center">
+                <div className="flex items-center justify-start md:justify-center flex-shrink-0">
+                    <div className="flex flex-col items-center justify-center text-center">
+                        <span className="text-[10px] md:text-xs font-mono text-primary-variant/70 tracking-widest uppercase text-center w-full">TRACK</span>
+                        <span className="text-3xl md:text-5xl font-maru font-bold text-gradient-sunset w-12 md:w-14 text-center group-hover:scale-105 transition-transform duration-200">
                             {String(index + 1).padStart(2, '0')}
                         </span>
                     </div>
                 </div>
 
                 {/* Song info */}
-                <div className="flex-1 flex flex-col items-start min-w-0 pr-0 md:pr-24">
-                    <div className="flex flex-wrap items-baseline gap-2 max-w-[calc(100%-80px)] md:max-w-none">
-                        <h2 className="text-xl md:text-2xl font-maru font-bold text-white tracking-wide">
+                <div className="flex-1 flex flex-col items-start min-w-0 pr-0 md:pr-28">
+                    <div className="flex flex-wrap items-baseline gap-2 max-w-[calc(100%-85px)] md:max-w-none">
+                        <h2 className="text-xl md:text-2xl font-maru font-bold text-white tracking-wide group-hover:text-primary-variant transition-colors">
                             {song.name}
                         </h2>
                         {song.translatedName && (
@@ -304,6 +482,7 @@ function Song(props: {
 
 export default function Program() {
     const [selectedPerformer, setSelectedPerformer] = useState<string | null>(null);
+    const [selectedSong, setSelectedSong] = useState<{ song: any; index: number } | null>(null);
 
     return (
         <div className="relative min-h-screen w-full bg-background overflow-x-hidden text-text-main pb-24">
@@ -344,6 +523,7 @@ export default function Program() {
                             song={songInfo} 
                             index={index} 
                             onSelectPerformer={(name) => setSelectedPerformer(name)}
+                            onSelectSong={(item) => setSelectedSong(item)}
                         />
                     ))}
                 </div>
@@ -353,6 +533,15 @@ export default function Program() {
                     <p>© {strings.eventYear} {strings.eventName} // {strings.eventJpName} • {strings.eventVenue}</p>
                 </div>
             </div>
+
+            {/* Song Introduction Modal */}
+            <SongModal
+                selectedSong={selectedSong}
+                totalSongs={songsJson.length}
+                onClose={() => setSelectedSong(null)}
+                onNavigate={(newIndex) => setSelectedSong({ song: songsJson[newIndex], index: newIndex })}
+                onSelectPerformer={(name) => setSelectedPerformer(name)}
+            />
 
             {/* Performer Profile & Lineup Modal */}
             <PerformerModal

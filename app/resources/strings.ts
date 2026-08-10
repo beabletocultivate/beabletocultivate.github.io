@@ -14,7 +14,7 @@ const slash = "/斜槓區/";
 const slashDescription = "來看看我們的表演者們在生活中的多重身分吧！";
 const intermission = "— 中場休息 —";
 const cultivateInstagram = "@be.able.to.cultivate";
-const followUsOnInstagram = "✨ 點擊表演者可查看出演曲目與 IG 帳號！";
+const followUsOnInstagram = "✨ 點擊任一曲目查看曲目簡介 • 點擊表演者查看個人檔案";
 
 /** Event information */
 const eventVenueTitle = "地點";
