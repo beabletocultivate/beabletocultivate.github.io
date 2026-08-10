@@ -27,12 +27,12 @@ export default function Welcome() {
       <div className="absolute inset-0 bg-radial from-transparent via-transparent to-background/60 pointer-events-none" />
 
       {/* Top Right Instagram Pill with Japanese subtitle */}
-      <div className="absolute right-6 top-8 z-10 text-right opacity-0 animate-fade-up">
+      <div className="absolute right-6 top-8 z-30 text-right opacity-0 animate-fade-up">
         <a
           href="https://www.instagram.com/be.able.to.cultivate/"
           target="_blank"
           rel="noopener noreferrer"
-          className="glass-card px-4 py-2 rounded-full font-maru text-xs md:text-sm text-primary-variant hover:text-white flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:border-primary/40"
+          className="glass-card px-4 py-2 rounded-full font-maru text-xs md:text-sm text-primary-variant hover:text-white flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:border-primary/40 active:scale-95 cursor-pointer shadow-lg"
         >
           <span className="text-secondary">✦</span>
           <span className="hidden sm:inline opacity-70">公式 IG</span>
@@ -48,9 +48,9 @@ export default function Welcome() {
       </div>
 
       {/* Hero Content Section */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start md:pl-16 lg:pl-24 max-w-5xl z-10">
+      <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start md:pl-16 lg:pl-24 max-w-5xl z-10 pointer-events-none">
         {/* Japanese Festival Badge */}
-        <div className="opacity-0 animate-fade-up mb-3">
+        <div className="opacity-0 animate-fade-up mb-3 pointer-events-auto">
           <div className="jp-badge">
             <span>✦</span>
             <span>{strings.eventDate}</span>
@@ -74,7 +74,7 @@ export default function Welcome() {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-8 opacity-0 animate-fade-up-delay-2">
+        <div className="flex flex-col sm:flex-row items-center gap-4 mt-8 opacity-0 animate-fade-up-delay-2 pointer-events-auto">
           <Link to="/program">
             <button
               className="bg-gradient-to-r from-primary to-secondary text-white font-maru rounded-full text-lg md:text-xl px-8 py-3.5 transition-all duration-300 hover:scale-105 active:scale-95 glow-primary cursor-pointer font-bold tracking-wider flex items-center gap-2"
