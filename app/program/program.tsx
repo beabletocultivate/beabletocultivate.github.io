@@ -191,7 +191,6 @@ function Performer(props: {
             <span className="text-primary-variant/90">{positionToDisplay(position)}</span>
             <span className="text-white/30">|</span>
             <span className="font-medium text-white/90">{name}</span>
-            <span className="text-[10px] text-primary-variant/70 opacity-60">✦</span>
         </button>
     );
 }
