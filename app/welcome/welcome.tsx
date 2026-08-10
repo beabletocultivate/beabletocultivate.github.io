@@ -61,9 +61,11 @@ export default function Welcome() {
         </div>
 
         {/* Title & Japanese Subtitles */}
-        <div className="flex flex-col items-center md:items-start">
-          <div className="text-xs md:text-sm tracking-[0.3em] font-maru text-primary-variant/90 uppercase mb-1">
-            {strings.eventJpName} // INDIE LIVE FESTIVAL
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="text-xs md:text-sm font-maru text-primary-variant/90 uppercase mb-1 flex flex-col md:flex-row items-center md:gap-2">
+            <span className="tracking-[0.3em]">{strings.eventJpName}</span>
+            <span className="hidden md:inline opacity-60">//</span>
+            <span className="tracking-[0.25em] text-[11px] md:text-sm opacity-80 md:opacity-100 mt-0.5 md:mt-0">INDIE LIVE FESTIVAL</span>
           </div>
           <h1 className="text-7xl md:text-9xl tracking-tight text-gradient-sunset font-title opacity-0 animate-fade-up drop-shadow-2xl">
             {strings.eventName}

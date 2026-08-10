@@ -186,7 +186,7 @@ function PerformerModal(props: {
                             className="glass-card rounded-2xl p-3.5 flex items-center justify-between gap-3 border border-white/10 hover:border-primary/50 hover:bg-white/5 active:scale-[0.98] transition-all duration-200 cursor-pointer group"
                         >
                             <div className="flex items-center gap-3 min-w-0">
-                                <span className="text-lg md:text-xl font-maru font-bold text-gradient-sunset w-7 text-center flex-shrink-0">
+                                <span className="text-lg md:text-xl font-maru font-bold text-gradient-sunset min-w-[1.75rem] text-center flex-shrink-0">
                                     {String(track.trackNumber).padStart(2, '0')}
                                 </span>
                                 <div className="min-w-0">
@@ -497,28 +497,37 @@ function Song(props: {
                 title="點擊查看曲目簡介"
                 className="song-card relative rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 border border-white/10 hover:border-primary/45 hover:bg-background-card-hover/90 shadow-md cursor-pointer transition-all duration-200 group active:scale-[0.995]"
             >
-                {/* Top-Right Genre Badge */}
+                {/* Desktop Top-Right Genre Badge */}
                 {badgeText && (
-                    <div className="absolute top-4 right-4 md:top-5 md:right-6 z-10">
-                        <span className="text-[11px] md:text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary group-hover:from-primary group-hover:to-secondary px-3 py-0.5 md:px-3.5 md:py-1 rounded-full shadow-sm inline-block transition-all duration-200">
+                    <div className="hidden md:block absolute top-5 right-6 z-10">
+                        <span className="text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary group-hover:from-primary group-hover:to-secondary px-3.5 py-1 rounded-full shadow-sm inline-block transition-all duration-200">
                             ✦ {badgeText}
                         </span>
                     </div>
                 )}
 
-                {/* Song order / Japanese Track Badge */}
-                <div className="flex items-center justify-start md:justify-center flex-shrink-0">
-                    <div className="flex flex-col items-center justify-center text-center">
-                        <span className="text-[10px] md:text-xs font-mono text-primary-variant/70 tracking-widest uppercase text-center w-full">TRACK</span>
-                        <span className="text-3xl md:text-5xl font-maru font-bold text-gradient-sunset w-12 md:w-14 text-center group-hover:scale-105 transition-transform duration-200">
+                {/* Song order & Mobile Genre Badge Header */}
+                <div className="flex flex-wrap items-center justify-between gap-2.5 w-full md:w-auto flex-shrink-0">
+                    <div className="flex flex-col items-start md:items-center justify-center text-left md:text-center min-w-fit">
+                        <span className="text-[10px] md:text-xs font-mono text-primary-variant/70 tracking-widest uppercase">TRACK</span>
+                        <span className="text-3xl md:text-5xl font-maru font-bold text-gradient-sunset min-w-[2.5rem] md:w-14 text-left md:text-center group-hover:scale-105 transition-transform duration-200">
                             {String(index + 1).padStart(2, '0')}
                         </span>
                     </div>
+
+                    {/* Mobile Genre Badge (Flows to right, and wraps to next row if space is constrained) */}
+                    {badgeText && (
+                        <div className="md:hidden z-10">
+                            <span className="text-[11px] font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary group-hover:from-primary group-hover:to-secondary px-3 py-0.5 rounded-full shadow-sm inline-block transition-all duration-200">
+                                ✦ {badgeText}
+                            </span>
+                        </div>
+                    )}
                 </div>
 
                 {/* Song info */}
                 <div className="flex-1 flex flex-col items-start min-w-0 pr-0 md:pr-28">
-                    <div className="flex flex-wrap items-baseline gap-2 max-w-[calc(100%-85px)] md:max-w-none">
+                    <div className="flex flex-wrap items-baseline gap-2 w-full">
                         <h2 className="text-xl md:text-2xl font-maru font-bold text-white tracking-wide group-hover:text-primary-variant transition-colors">
                             {song.name}
                         </h2>
