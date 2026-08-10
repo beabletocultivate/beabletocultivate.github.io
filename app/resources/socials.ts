@@ -14,7 +14,7 @@ export const instagramHandles: Record<string, string> = {
   "李孟軒": "",
   "林鈺堯": "",
   "張宜蓁": "",
-  "鄭德馨": "",
+  "鄭德馨": "https://www.instagram.com/sleepy_roo_/",
   "郭桓廷": "",
   "范才悅": "",
   "博雅": "",
@@ -27,7 +27,7 @@ export const instagramHandles: Record<string, string> = {
   "葉又銘": "",
   "劉信盟": "",
   "魏子翔": "",
-  "王馨濂": "",
+  "王馨濂": "https://www.instagram.com/len_frosttears/",
   "劉咸慈": "",
   "唯媛": "",
   "馬譽尚": "",
@@ -39,7 +39,7 @@ export const instagramHandles: Record<string, string> = {
   "張詩汶": "",
   "林嘉榕": "",
   "鄭安志": "",
-  "陳志嘉": "",
+  "陳志嘉": "https://www.instagram.com/taku_frosttears/",
   "余宣德": "",
   "王大維": "",
   "鄭唯冬": "",
@@ -56,8 +56,8 @@ export const instagramHandles: Record<string, string> = {
   "翊慈": "",
   "謝又安": "",
   "劉若眉": "",
-  "幻想旅途": "",
-  "枋橋天台": "",
+  "幻想旅途": "https://www.instagram.com/fantasy_journey_tw/",
+  "枋橋天台": "https://www.instagram.com/fromrooftop_/",
   // Add handles for any performer as needed (e.g., "王瑞逸": "instagram_handle")
 };
 
