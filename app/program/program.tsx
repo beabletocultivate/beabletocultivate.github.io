@@ -135,7 +135,7 @@ function Song(props: {
                     <span className="text-xs uppercase tracking-[0.25em] text-primary-variant font-maru font-bold block mb-1">
                         ── ✦ 休憩 TIME ✦ ──
                     </span>
-                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-gradient-sunset tracking-wider">
+                    <h3 className="text-2xl md:text-3xl font-title text-gradient-sunset tracking-wider">
                         {strings.intermission}
                     </h3>
                     <p className="text-xs text-text-muted font-maru mt-1">
