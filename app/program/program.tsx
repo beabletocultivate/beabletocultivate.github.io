@@ -233,7 +233,7 @@ function Song(props: {
 
     return (
         <div className="w-full max-w-4xl mx-auto px-4 my-2.5">
-            <div className="glass-card song-card rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 border border-white/10 hover:border-primary/40">
+            <div className="song-card rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 border border-white/10 hover:border-primary/40 shadow-md">
                 {/* Song order / Japanese Track Badge */}
                 <div className="flex md:flex-col items-center justify-between md:justify-center flex-shrink-0">
                     <div className="flex flex-col items-center">
@@ -312,11 +312,13 @@ export default function Program() {
     return (
         <div className="relative min-h-screen w-full bg-background overflow-x-hidden text-text-main pb-24">
             {/* Japanese Anime Sky Atmosphere */}
-            <div className="fixed inset-0 pointer-events-none">
+            <div className="fixed inset-0 pointer-events-none transform-gpu">
                 <img
                     src={nikkeiSky}
                     alt="Anime Twilight Sky"
-                    className="w-full h-full object-cover opacity-35 filter blur-[1px]"
+                    className="w-full h-full object-cover opacity-35"
+                    loading="eager"
+                    decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background/95" />
             </div>
