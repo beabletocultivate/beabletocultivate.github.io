@@ -1,42 +1,55 @@
 :root {
-    --menu-animation-duration: 0.1s;
+  --menu-animation-duration: 0.25s;
 }
 
-@keyframes fade-in {
-  from { opacity: 0; display: none; }
-  to { opacity: 1; display: flex; }
+@keyframes fadeInMenu {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(24px);
+  }
 }
 
-@keyframes fade-out {
-  from { opacity: 1; display: flex; }
-  to { opacity: 0; display: none; }
+@keyframes fadeOutMenu {
+  from {
+    opacity: 1;
+    backdrop-filter: blur(24px);
+  }
+  to {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    visibility: hidden;
+  }
 }
 
 .fade-in {
-  animation: fade-in var(--menu-animation-duration) ease-in forwards;
+  animation: fadeInMenu var(--menu-animation-duration) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: auto;
 }
 
 .fade-out {
-  animation: fade-out var(--menu-animation-duration) ease-out forwards;
+  animation: fadeOutMenu var(--menu-animation-duration) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
 }
 
-.icon-dark {
-    filter: brightness(3);
+@keyframes spinOpen {
+  0% { transform: rotate(0deg) scale(0.9); }
+  100% { transform: rotate(180deg) scale(1); }
 }
 
-@keyframes spin-open {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(180deg); }
-}
-@keyframes spin-close {
-  0% { transform: rotate(180deg); }
-  100% { transform: rotate(0deg); }
+@keyframes spinClose {
+  0% { transform: rotate(180deg) scale(0.9); }
+  100% { transform: rotate(0deg) scale(1); }
 }
 
 .spin-open {
-  animation: spin-open var(--menu-animation-duration) cubic-bezier(0.4,0,0.2,1) forwards;
+  animation: spinOpen var(--menu-animation-duration) cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .spin-close {
-  animation: spin-close var(--menu-animation-duration) cubic-bezier(0.4,0,0.2,1) forwards;
+  animation: spinClose var(--menu-animation-duration) cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+

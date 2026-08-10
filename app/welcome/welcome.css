@@ -1,23 +1,22 @@
 :root {
-    --animation-duration: 0.8s;
-    --animation-duration-short: 0.5s;
-    --animation-duration-long: 1.2s;
+  --animation-duration: 0.8s;
+  --animation-duration-short: 0.5s;
+  --animation-duration-long: 1.5s;
 }
 
-@keyframes brighten {
-    from {
-        filter: brightness(0.5) contrast(0.7);
-    }
-
-    to {
-        filter: brightness(1) contrast(1);
-    }
+@keyframes twilightGlow {
+  0%, 100% {
+    filter: brightness(1) contrast(1.02);
+  }
+  50% {
+    filter: brightness(1.08) contrast(1.06);
+  }
 }
 
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(32px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
@@ -25,48 +24,43 @@
   }
 }
 
-@keyframes notesSweep {
-    from {
-        clip-path: inset(0 100% 0 0);
-        opacity: 0.5;
-    }
-
-    to {
-        clip-path: inset(0 0 0 0);
-        opacity: 1;
-    }
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
-@keyframes sunrise {
-    from {
-        transform: translateY(150px);
-    }
-
-    to {
-        transform: translateY(0);
-    }
+@keyframes soundwavePulse {
+  0%, 100% {
+    opacity: 0.75;
+    filter: drop-shadow(0 0 8px rgba(255, 126, 71, 0.4));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 20px rgba(232, 67, 147, 0.8));
+  }
 }
 
 .animate-fade-up {
-  animation: fadeUp var(--animation-duration-short) cubic-bezier(0.4,0,0.2,1) forwards;
+  animation: fadeUp var(--animation-duration-short) cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-fade-up-delay-1 {
-  animation: fadeUp var(--animation-duration-short) cubic-bezier(0.4,0,0.2,1) 0.1s forwards;
+  animation: fadeUp var(--animation-duration-short) cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
 }
 
-.animate-fields-brighten {
-    animation: brighten var(--animation-duration-long) ease-out forwards;
+.animate-fade-up-delay-2 {
+  animation: fadeUp var(--animation-duration-short) cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
 }
 
-.animate-notes-sweep {
-    animation: notesSweep 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+.animate-twilight-bg {
+  animation: twilightGlow 8s ease-in-out infinite;
 }
 
-.animate-sky-brighten {
-    animation: brighten var(--animation-duration) ease-out forwards;
+.animate-float {
+  animation: floatGentle 4s ease-in-out infinite;
 }
 
-.animate-sunrise {
-    animation: sunrise var(--animation-duration) ease-out forwards;
-}

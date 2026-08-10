@@ -1,21 +1,19 @@
 :root {
-    background-color: #36354d;
-
-    --masonry-gap-size: 20px;
+  --masonry-gap-size: 24px;
 }
 
 .slash-grid {
   display: flex;
-  margin-left: calc(-1 * var(--masonry-gap-size)); /* gutter size offset */
+  margin-left: calc(-1 * var(--masonry-gap-size));
   width: auto;
 }
 
 .slash-grid_column {
-  padding-left: var(--masonry-gap-size); /* gutter size */
+  padding-left: var(--masonry-gap-size);
   background-clip: padding-box;
 }
 
-/* Style each child item */
 .slash-grid_column > div {
   margin-bottom: var(--masonry-gap-size);
 }
+
