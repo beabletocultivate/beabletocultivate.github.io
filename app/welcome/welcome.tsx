@@ -78,7 +78,7 @@ export default function Welcome() {
               className="bg-gradient-to-r from-primary to-secondary text-white font-maru rounded-full text-lg md:text-xl px-8 py-3.5 transition-all duration-300 hover:scale-105 active:scale-95 glow-primary cursor-pointer font-bold tracking-wider flex items-center gap-2"
             >
               <span>{strings.readProgram}</span>
-              <span className="text-xs opacity-80 font-normal">/ TIMETABLE</span>
+              <span className="text-xs opacity-80 font-normal">/ PROGRAM</span>
               <span className="text-base">→</span>
             </button>
           </Link>

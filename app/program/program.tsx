@@ -171,8 +171,8 @@ function PerformerModal(props: {
 
                 {/* Festival Track Lineup */}
                 <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-2.5 overscroll-contain touch-pan-y">
-                    <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-2 px-1">
-                        ✦ FESTIVAL LINEUP // 出演曲目
+                    <div className="font-maru font-bold text-sm text-primary-variant tracking-wider uppercase mb-2 px-1">
+                        ✦ 出演曲目 // FESTIVAL LINEUP
                     </div>
                     {performerTracks.map((track) => (
                         <div
@@ -239,6 +239,7 @@ function SongModal(props: {
             artist: string;
             genre?: string;
             bandName?: string;
+            youtubeUrl?: string;
             description?: string;
             performers: string[][];
         };
@@ -308,6 +309,7 @@ function SongModal(props: {
     const description = song.description;
     const hasPrev = index > 0;
     const hasNext = index < totalSongs - 1;
+    const youtubeUrl = song.youtubeUrl || (song.name !== "創作樂團特別演出" ? `https://www.youtube.com/results?search_query=${encodeURIComponent(`${song.artist} ${song.name}`)}` : null);
 
     // Mobile touch swipe gesture handlers (smart axis detection)
     const handleTouchStart = (e: React.TouchEvent) => {
@@ -382,7 +384,7 @@ function SongModal(props: {
                     >
                         {/* Song Header */}
                         <div className="flex flex-col items-start pt-2 pb-4 border-b border-white/10 pr-10">
-                            <div className="flex items-center gap-2 mb-2 flex-wrap">
+                            <div className="flex items-center gap-2 mb-2.5 flex-wrap">
                                 <span className="text-xs font-mono text-primary-variant font-bold tracking-widest uppercase bg-primary-variant/15 border border-primary-variant/30 px-2.5 py-0.5 rounded-full">
                                     TRACK {String(index + 1).padStart(2, '0')}
                                 </span>
@@ -395,12 +397,13 @@ function SongModal(props: {
 
                             <h2 className="text-2xl md:text-3xl font-title text-gradient-sunset tracking-wide">
                                 {song.name}
+                                {song.translatedName && (
+                                    <span className="text-base md:text-lg text-text-muted font-maru font-normal ml-2 inline-block">
+                                        （{song.translatedName}）
+                                    </span>
+                                )}
                             </h2>
-                            {song.translatedName && (
-                                <p className="text-sm text-text-muted font-maru mt-0.5">
-                                    （{song.translatedName}）
-                                </p>
-                            )}
+
                             <p className="text-sm md:text-base text-primary-variant font-maru font-medium mt-1">
                                 原唱：{song.artist}
                             </p>
@@ -410,8 +413,24 @@ function SongModal(props: {
                         <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-5 overscroll-contain touch-pan-y">
                             {/* Song Description */}
                             <div>
-                                <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-2 px-1">
-                                    ✦ SONG STORY // 曲目簡介
+                                <div className="flex items-center justify-between gap-2 mb-2.5 px-1 min-h-[28px]">
+                                    <span className="font-maru font-bold text-sm text-primary-variant tracking-wider uppercase">
+                                        ✦ 曲目簡介 // SONG STORY
+                                    </span>
+                                    {youtubeUrl && (
+                                        <a
+                                            href={youtubeUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-maru font-medium text-text-muted hover:text-white bg-white/10 hover:bg-white/20 border border-white/15 hover:border-primary/50 backdrop-blur-sm shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer flex-shrink-0 group/yt"
+                                        >
+                                            <svg className="w-3.5 h-3.5 fill-[#FF4E4E]/90 group-hover/yt:fill-[#FF4E4E] transition-colors" viewBox="0 0 24 24">
+                                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                            </svg>
+                                            <span>原曲試聽</span>
+                                            <span className="text-[10px] opacity-70 font-mono">↗</span>
+                                        </a>
+                                    )}
                                 </div>
                                 <div className="glass-card rounded-2xl p-4 md:p-5 border border-white/10 text-sm md:text-base text-text-main font-maru leading-relaxed bg-background-dark/70">
                                     {description || "這首歌曲將在 2026 耕云祭 現場帶來充滿感染力的樂團演出，敬請期待！"}
@@ -420,8 +439,8 @@ function SongModal(props: {
 
                             {/* Performer Lineup */}
                             <div>
-                                <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-2 px-1">
-                                    ✦ STAGE LINEUP // 演出人員
+                                <div className="font-maru font-bold text-sm text-primary-variant tracking-wider uppercase mb-2.5 px-1">
+                                    ✦ 演出人員 // STAGE LINEUP
                                 </div>
                                 <div className="flex flex-wrap items-center gap-2">
                                     {Array.isArray(song.performers) &&
@@ -653,7 +672,7 @@ export default function Program() {
                 <div className="text-center max-w-xl mb-8">
                     <div className="jp-badge mb-3">
                         <span>✦</span>
-                        <span>TIMETABLE</span>
+                        <span>PROGRAM</span>
                         <span>✦</span>
                     </div>
                     <h1 className="text-5xl md:text-7xl font-title tracking-tight text-gradient-sunset mb-2 drop-shadow">

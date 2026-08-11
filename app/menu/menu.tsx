@@ -9,7 +9,7 @@ import strings from '../resources/strings';
 
 const menuItems = [
     { name: strings.homePage, link: "/", en: "HOME" },
-    { name: strings.program, link: "/program", en: "TIMETABLE" },
+    { name: strings.program, link: "/program", en: "PROGRAM" },
     { name: strings.information, link: "/information", en: "INFORMATION" },
     { name: strings.about, link: "/about", en: "ABOUT" },
 ];
