@@ -40,13 +40,6 @@ export default function Welcome() {
         </a>
       </div>
 
-      {/* Vertical Poetic Tagline (Desktop) */}
-      <div className="hidden lg:flex absolute right-16 top-1/2 -translate-y-1/2 z-10 opacity-0 animate-fade-up-delay-1 pointer-events-none">
-        <div className="writing-vertical text-primary-variant/75 text-sm tracking-[0.35em] font-serif border-r border-primary-variant/25 pr-3 py-4">
-          {strings.eventTagline}
-        </div>
-      </div>
-
       {/* Hero Content Section */}
       <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start md:pl-16 lg:pl-24 max-w-5xl z-10 pointer-events-none">
         {/* Festival Badge */}
@@ -73,6 +66,9 @@ export default function Welcome() {
           <h3 className="text-xl md:text-3xl tracking-[0.2em] text-primary-variant font-maru font-bold opacity-0 animate-fade-up-delay-1 mt-2 drop-shadow uppercase">
             {strings.eventEngName}
           </h3>
+          <p className="text-base md:text-xl font-maru text-text-main/90 tracking-[0.2em] font-medium opacity-0 animate-fade-up-delay-1 mt-3 drop-shadow-md">
+            {strings.eventTagline}
+          </p>
         </div>
 
         {/* Action Buttons */}
