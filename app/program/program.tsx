@@ -123,10 +123,10 @@ function PerformerModal(props: {
 
     return (
         <div
-            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex items-center justify-center p-4 overflow-hidden touch-none ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
+            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex items-center justify-center p-4 md:p-6 overflow-hidden touch-none ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
         >
             <div
-                className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[85vh] overflow-hidden touch-auto overscroll-contain ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
+                className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[82vh] overflow-hidden touch-auto overscroll-contain ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
             >
                 {/* Close Button */}
                 <button
@@ -138,7 +138,7 @@ function PerformerModal(props: {
                 </button>
 
                 {/* Performer Header */}
-                <div className="flex flex-col items-center text-center pt-2 pb-4 border-b border-white/10">
+                <div className="flex flex-col items-center text-center pb-5 border-b border-white/10">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary via-secondary to-accent-purple p-0.5 shadow-lg mb-3">
                         <div className="w-full h-full rounded-full bg-background-dark flex items-center justify-center text-2xl font-title text-primary-variant">
                             {performerName.charAt(0)}
@@ -170,7 +170,7 @@ function PerformerModal(props: {
                 </div>
 
                 {/* Festival Track Lineup */}
-                <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-2.5 overscroll-contain touch-pan-y">
+                <div className="flex-1 overflow-y-auto pr-1 my-5 space-y-3 overscroll-contain touch-pan-y">
                     <div className="font-maru font-bold text-sm text-primary-variant tracking-wider uppercase mb-2 px-1">
                         ✦ 出演曲目 // FESTIVAL LINEUP
                     </div>
@@ -213,7 +213,7 @@ function PerformerModal(props: {
                                     {track.roles.map((r, i) => (
                                         <span
                                             key={i}
-                                            className="text-xs font-maru bg-background-dark/90 text-primary-variant px-2.5 py-1 rounded-full border border-white/10"
+                                            className="text-xs font-maru bg-background-dark/90 text-primary-variant px-3 py-1.5 rounded-full border border-white/10"
                                         >
                                             {positionToDisplay(r)}
                                         </span>
@@ -339,7 +339,7 @@ function SongModal(props: {
 
     return (
         <div
-            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex flex-col items-center justify-center p-3 pb-20 md:p-4 md:pb-4 overflow-hidden touch-none ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
+            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex flex-col items-center justify-center p-4 md:p-6 overflow-hidden touch-none ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
         >
             {/* Modal Dialog Container with Desktop Side Navigators */}
             <div className="relative flex items-center justify-center w-full max-w-lg">
@@ -363,7 +363,7 @@ function SongModal(props: {
 
                 {/* Modal Dialog Card */}
                 <div
-                    className={`glass-panel w-full rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[72vh] md:max-h-[78vh] overflow-hidden select-none touch-auto overscroll-contain ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
+                    className={`glass-panel w-full rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[82vh] overflow-hidden select-none touch-auto overscroll-contain ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
                     onTouchStart={handleTouchStart}
                     onTouchEnd={handleTouchEnd}
                     onClick={(e) => e.stopPropagation()}
@@ -383,13 +383,13 @@ function SongModal(props: {
                         className={`${direction === 'left' ? 'track-slide-from-left' : 'track-slide-from-right'} flex flex-col flex-1 overflow-hidden`}
                     >
                         {/* Song Header */}
-                        <div className="flex flex-col items-start pt-2 pb-4 border-b border-white/10 pr-10">
+                        <div className="flex flex-col items-start pb-5 border-b border-white/10 pr-10">
                             <div className="flex items-center gap-2 mb-2.5 flex-wrap">
-                                <span className="text-xs font-mono text-primary-variant font-bold tracking-widest uppercase bg-primary-variant/15 border border-primary-variant/30 px-2.5 py-0.5 rounded-full">
+                                <span className="text-xs font-mono text-primary-variant font-bold tracking-widest uppercase bg-primary-variant/15 border border-primary-variant/30 px-3 py-1 rounded-full">
                                     TRACK {String(index + 1).padStart(2, '0')}
                                 </span>
                                 {badgeText && (
-                                    <span className="text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary px-3 py-0.5 rounded-full shadow-sm">
+                                    <span className="text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary px-3 py-1 rounded-full shadow-sm">
                                         ✦ {badgeText}
                                     </span>
                                 )}
@@ -410,7 +410,7 @@ function SongModal(props: {
                         </div>
 
                         {/* Scrollable Content */}
-                        <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-5 overscroll-contain touch-pan-y">
+                        <div className="flex-1 overflow-y-auto pr-1 my-5 space-y-6 overscroll-contain touch-pan-y">
                             {/* Song Description */}
                             <div>
                                 <div className="flex items-center justify-between gap-2 mb-2.5 px-1 min-h-[28px]">
@@ -432,7 +432,7 @@ function SongModal(props: {
                                         </a>
                                     )}
                                 </div>
-                                <div className="glass-card rounded-2xl p-4 md:p-5 border border-white/10 text-sm md:text-base text-text-main font-maru leading-relaxed bg-background-dark/70">
+                                <div className="glass-card rounded-2xl p-5 md:p-6 border border-white/10 text-sm md:text-base text-text-main font-maru leading-relaxed bg-background-dark/70">
                                     {description || "這首歌曲將在 2026 耕云祭 現場帶來充滿感染力的樂團演出，敬請期待！"}
                                 </div>
                             </div>
@@ -538,10 +538,10 @@ function Performer(props: {
                 onSelect(name);
             }}
             title={`點擊查看 ${name} 的出演曲目與個人檔案`}
-            className="text-xs bg-background-dark/85 text-text-muted hover:text-white border border-white/10 hover:border-primary/60 hover:bg-background-dark rounded-full px-3 py-1 font-maru flex items-center gap-1.5 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer glow-hover relative z-10"
+            className="text-xs bg-background-dark/85 text-text-muted hover:text-white border border-white/10 hover:border-primary/60 hover:bg-background-dark rounded-full px-3.5 py-1.5 font-maru inline-flex items-center gap-1.5 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer glow-hover relative z-10"
         >
-            <span className="text-primary-variant/90">{positionToDisplay(position)}</span>
-            <span className="text-white/30">|</span>
+            <span className="text-primary-variant font-semibold">{positionToDisplay(position)}</span>
+            <span className="text-white/20 select-none">|</span>
             <span className="font-medium text-white/90">{name}</span>
         </button>
     );
@@ -565,7 +565,7 @@ function Song(props: {
     const badgeText = song.genre || song.bandName;
 
     return (
-        <div className="w-full mx-auto my-2.5">
+        <div className="w-full">
             <div
                 onClick={() => onSelectSong({ song, index })}
                 title="點擊查看曲目簡介"
@@ -592,7 +592,7 @@ function Song(props: {
                     {/* Mobile Genre Badge (Flows to right, and wraps to next row if space is constrained) */}
                     {badgeText && (
                         <div className="md:hidden z-10">
-                            <span className="text-[11px] font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary group-hover:from-primary group-hover:to-secondary px-3 py-0.5 rounded-full shadow-sm inline-block transition-all duration-200">
+                            <span className="text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary group-hover:from-primary group-hover:to-secondary px-3 py-1 rounded-full shadow-sm inline-block transition-all duration-200">
                                 ✦ {badgeText}
                             </span>
                         </div>
@@ -632,7 +632,7 @@ function Song(props: {
 
             {/* Intermission Break Banner */}
             {index === INTERMISSION_AFTER_SONG && (
-                <div className="w-full my-8 py-6 px-6 rounded-2xl glass-panel text-center border border-primary/35 glow-primary">
+                <div className="w-full my-6 py-6 px-6 rounded-2xl glass-panel text-center border border-primary/35 glow-primary">
                     <span className="text-xs uppercase tracking-[0.25em] text-primary-variant font-maru font-bold block mb-1">
                         ── ✦ INTERMISSION ✦ ──
                     </span>
@@ -669,7 +669,7 @@ export default function Program() {
             {/* Content Container */}
             <div className="relative z-10 page-container">
                 {/* Japanese Timetable Header */}
-                <div className="text-center max-w-xl mb-8">
+                <div className="text-center max-w-xl mb-10">
                     <div className="jp-badge mb-3">
                         <span>✦</span>
                         <span>PROGRAM</span>
@@ -678,13 +678,13 @@ export default function Program() {
                     <h1 className="text-5xl md:text-7xl font-title tracking-tight text-gradient-sunset mb-2 drop-shadow">
                         {strings.program}
                     </h1>
-                    <p className="text-sm md:text-base text-text-muted font-maru mt-2">
+                    <p className="text-sm md:text-base text-text-muted font-maru mt-1">
                         {strings.followUsOnInstagram}
                     </p>
                 </div>
 
                 {/* Song List */}
-                <div className="w-full">
+                <div className="w-full flex flex-col gap-3.5 mb-8">
                     {songsJson.map((songInfo, index) => (
                         <Song
                             key={index}
