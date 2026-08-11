@@ -60,6 +60,26 @@ h3 {
   text-orientation: mixed;
 }
 
+/* Centralized Layout Variables & Container */
+:root {
+  --page-max-width: 64rem;     /* max-w-5xl (1024px) */
+  --page-padding-x: 1rem;      /* 16px horizontal edge padding on mobile */
+  --page-padding-top: 5rem;    /* 80px top spacing for nav bar clearance */
+}
+
+.page-container {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-padding-x);
+  padding-right: var(--page-padding-x);
+  padding-top: var(--page-padding-top);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Glassmorphism & Soft Japanese Lighting */
 .glass-panel {
   background: var(--color-background-glass);

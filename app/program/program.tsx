@@ -13,7 +13,7 @@ import { defaultMeta } from "../meta";
 const INTERMISSION_AFTER_SONG = 9;
 
 export function meta({ }: Route.MetaArgs) {
-  return defaultMeta();
+    return defaultMeta();
 }
 
 function positionToDisplay(pos: string) {
@@ -121,10 +121,10 @@ function PerformerModal(props: {
     });
 
     return (
-        <div 
+        <div
             className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex items-center justify-center p-4 overflow-hidden touch-none ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
         >
-            <div 
+            <div
                 className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[85vh] overflow-hidden touch-auto overscroll-contain ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
             >
                 {/* Close Button */}
@@ -143,11 +143,11 @@ function PerformerModal(props: {
                             {performerName.charAt(0)}
                         </div>
                     </div>
-                    
+
                     <h2 className="text-3xl font-title text-gradient-sunset tracking-wide mb-1">
                         {performerName}
                     </h2>
-                    
+
                     <div className="jp-badge mt-1">
                         <span>✦ 出演：全 {performerTracks.length} 曲 ✦</span>
                     </div>
@@ -161,7 +161,7 @@ function PerformerModal(props: {
                             className="mt-4 inline-flex items-center gap-2 bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white font-maru font-bold text-sm py-2 px-5 rounded-full shadow-md hover:scale-105 active:scale-95 transition-all duration-200"
                         >
                             <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                             </svg>
                             <span>@{instagramHandle}</span>
                         </a>
@@ -174,7 +174,7 @@ function PerformerModal(props: {
                         ✦ FESTIVAL LINEUP // 出演曲目
                     </div>
                     {performerTracks.map((track) => (
-                        <div 
+                        <div
                             key={track.trackNumber}
                             onClick={() => {
                                 const songIndex = track.trackNumber - 1;
@@ -206,12 +206,12 @@ function PerformerModal(props: {
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div className="flex items-center gap-2 flex-shrink-0">
                                 <div className="flex flex-wrap gap-1">
                                     {track.roles.map((r, i) => (
-                                        <span 
-                                            key={i} 
+                                        <span
+                                            key={i}
                                             className="text-xs font-maru bg-background-dark/90 text-primary-variant px-2.5 py-1 rounded-full border border-white/10"
                                         >
                                             {positionToDisplay(r)}
@@ -335,11 +335,11 @@ function SongModal(props: {
     };
 
     return (
-        <div 
+        <div
             className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex flex-col items-center justify-center p-3 pb-20 md:p-4 md:pb-24 overflow-hidden touch-none ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
         >
             {/* Modal Dialog Card */}
-            <div 
+            <div
                 className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[72vh] md:max-h-[78vh] overflow-hidden select-none touch-auto overscroll-contain ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
@@ -354,8 +354,8 @@ function SongModal(props: {
                 </button>
 
                 {/* Animated Directional Slide Track Content Container */}
-                <div 
-                    key={index} 
+                <div
+                    key={index}
                     className={`${direction === 'left' ? 'track-slide-from-left' : 'track-slide-from-right'} flex flex-col flex-1 overflow-hidden`}
                 >
                     {/* Song Header */}
@@ -423,7 +423,7 @@ function SongModal(props: {
             </div>
 
             {/* Minimalist Floating Track Navigator */}
-            <div 
+            <div
                 className={`fixed bottom-5 md:bottom-7 left-1/2 -translate-x-1/2 flex items-center gap-4 px-4 py-1.5 rounded-full bg-[#0A0914]/85 backdrop-blur-xl border border-white/15 shadow-xl select-none z-50 ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
                 onClick={(e) => e.stopPropagation()}
             >
@@ -432,11 +432,10 @@ function SongModal(props: {
                     disabled={!hasPrev}
                     onClick={() => hasPrev && handleNavigate(index - 1)}
                     aria-label="Previous track"
-                    className={`w-7 h-7 flex items-center justify-center text-lg font-bold transition-all ${
-                        !hasPrev 
-                            ? "opacity-20 cursor-not-allowed text-white/30" 
+                    className={`w-7 h-7 flex items-center justify-center text-lg font-bold transition-all ${!hasPrev
+                            ? "opacity-20 cursor-not-allowed text-white/30"
                             : "text-text-muted hover:text-white hover:scale-110 active:scale-90 cursor-pointer"
-                    }`}
+                        }`}
                 >
                     ‹
                 </button>
@@ -450,11 +449,10 @@ function SongModal(props: {
                     disabled={!hasNext}
                     onClick={() => hasNext && handleNavigate(index + 1)}
                     aria-label="Next track"
-                    className={`w-7 h-7 flex items-center justify-center text-lg font-bold transition-all ${
-                        !hasNext 
-                            ? "opacity-20 cursor-not-allowed text-white/30" 
+                    className={`w-7 h-7 flex items-center justify-center text-lg font-bold transition-all ${!hasNext
+                            ? "opacity-20 cursor-not-allowed text-white/30"
                             : "text-text-muted hover:text-white hover:scale-110 active:scale-90 cursor-pointer"
-                    }`}
+                        }`}
                 >
                     ›
                 </button>
@@ -505,11 +503,11 @@ function Song(props: {
     const badgeText = song.genre || song.bandName;
 
     return (
-        <div className="w-full max-w-4xl mx-auto px-4 my-2.5">
-            <div 
+        <div className="w-full mx-auto my-2.5">
+            <div
                 onClick={() => onSelectSong({ song, index })}
                 title="點擊查看曲目簡介"
-                className="song-card relative rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 border border-white/10 hover:border-primary/45 hover:bg-background-card-hover/90 shadow-md cursor-pointer transition-all duration-200 group active:scale-[0.995]"
+                className="song-card relative w-full rounded-2xl p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-6 border border-white/10 hover:border-primary/45 hover:bg-background-card-hover/90 shadow-md cursor-pointer transition-all duration-200 group active:scale-[0.995]"
             >
                 {/* Desktop Top-Right Genre Badge */}
                 {badgeText && (
@@ -572,7 +570,7 @@ function Song(props: {
 
             {/* Japanese Intermission Break Banner */}
             {index === INTERMISSION_AFTER_SONG && (
-                <div className="my-8 py-6 px-6 rounded-2xl glass-panel text-center border border-primary/35 glow-primary">
+                <div className="w-full my-8 py-6 px-6 rounded-2xl glass-panel text-center border border-primary/35 glow-primary">
                     <span className="text-xs uppercase tracking-[0.25em] text-primary-variant font-maru font-bold block mb-1">
                         ── ✦ 休憩 TIME ✦ ──
                     </span>
@@ -607,7 +605,7 @@ export default function Program() {
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 container mx-auto px-4 pt-20 flex flex-col items-center">
+            <div className="relative z-10 page-container">
                 {/* Japanese Timetable Header */}
                 <div className="text-center max-w-xl mb-8">
                     <div className="jp-badge mb-3">
@@ -626,10 +624,10 @@ export default function Program() {
                 {/* Song List */}
                 <div className="w-full">
                     {songsJson.map((songInfo, index) => (
-                        <Song 
-                            key={index} 
-                            song={songInfo} 
-                            index={index} 
+                        <Song
+                            key={index}
+                            song={songInfo}
+                            index={index}
                             onSelectPerformer={(name) => setSelectedPerformer(name)}
                             onSelectSong={(item) => setSelectedSong(item)}
                         />

@@ -41,7 +41,7 @@ export default function Information() {
             </div>
 
             {/* Main Content Area */}
-            <div className="relative z-10 container mx-auto px-4 pt-20 max-w-5xl flex flex-col items-center">
+            <div className="relative z-10 page-container">
                 {/* Header */}
                 <div className="text-center mb-10">
                     <div className="jp-badge mb-3">
