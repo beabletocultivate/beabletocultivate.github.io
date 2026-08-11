@@ -53,7 +53,7 @@ export default function About() {
 
                     <div className="glass-panel rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
                         <h2 className="text-2xl md:text-3xl font-title text-white mb-4">
-                            在音符裡播種，在舞台上綻放
+                            {strings.eventTagline}
                         </h2>
 
                         <div className="space-y-4 text-sm md:text-base text-text-main font-maru leading-relaxed">

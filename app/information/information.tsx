@@ -73,7 +73,7 @@ export default function Information() {
                             </p>
                             <div className="mt-2">
                                 <a
-                                    href="https://calendar.app.google/PE62RD1HWoKMbAVp8"
+                                    href={strings.eventCalendarUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold text-primary-variant hover:text-white bg-primary/10 hover:bg-primary/25 border border-primary/30 px-4 py-2 rounded-full transition-all duration-300 hover:scale-105"
@@ -115,15 +115,16 @@ export default function Information() {
                                 <span className="text-xs text-text-muted">/ 入場票券</span>
                             </div>
                             <div className="mt-3">
-                                <a
-                                    href="https://reurl.cc/lYYy5d"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-primary to-secondary text-white font-maru text-lg font-bold py-3.5 px-6 rounded-full glow-primary hover:scale-[1.02] active:scale-95 transition-all duration-300 tracking-wider"
+                                <button
+                                    type="button"
+                                    disabled
+                                    aria-disabled="true"
+                                    className="inline-flex items-center justify-center gap-2 w-full bg-white/5 border border-dashed border-white/20 text-text-muted font-maru text-base md:text-lg font-bold py-3.5 px-6 rounded-full cursor-not-allowed opacity-80 select-none"
                                 >
-                                    <span>{strings.eventBuyTickets}（線上購票）</span>
-                                    <span>→</span>
-                                </a>
+                                    <span>✦</span>
+                                    <span>線上購票（即將開放）</span>
+                                    <span>✦</span>
+                                </button>
                             </div>
                         </div>
                     </div>

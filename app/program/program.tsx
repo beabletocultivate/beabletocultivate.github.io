@@ -337,95 +337,135 @@ function SongModal(props: {
 
     return (
         <div
-            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex flex-col items-center justify-center p-3 pb-20 md:p-4 md:pb-24 overflow-hidden touch-none ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
+            className={`fixed inset-0 z-50 bg-background-dark/85 backdrop-blur-md flex flex-col items-center justify-center p-3 pb-20 md:p-4 md:pb-4 overflow-hidden touch-none ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
         >
-            {/* Modal Dialog Card */}
-            <div
-                className={`glass-panel w-full max-w-lg rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[72vh] md:max-h-[78vh] overflow-hidden select-none touch-auto overscroll-contain ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
-            >
-                {/* Close Button */}
+            {/* Modal Dialog Container with Desktop Side Navigators */}
+            <div className="relative flex items-center justify-center w-full max-w-lg">
+                {/* Desktop Left Navigation Arrow */}
                 <button
-                    onClick={handleClose}
-                    aria-label="Close modal"
-                    className="absolute top-5 right-5 w-9 h-9 rounded-full glass-card flex items-center justify-center text-text-muted hover:text-white hover:border-primary/50 transition-all duration-200 cursor-pointer z-10"
+                    type="button"
+                    disabled={!hasPrev}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        hasPrev && handleNavigate(index - 1);
+                    }}
+                    aria-label="Previous track"
+                    className={`hidden md:flex absolute -left-16 lg:-left-20 top-1/2 -translate-y-1/2 w-12 h-12 lg:w-14 lg:h-14 rounded-full glass-card border border-white/20 items-center justify-center text-3xl font-bold transition-all duration-200 z-30 select-none ${
+                        !hasPrev
+                            ? "opacity-15 cursor-not-allowed text-white/30 border-white/5 pointer-events-none"
+                            : "text-text-muted hover:text-white hover:scale-110 hover:border-primary/60 hover:bg-white/15 active:scale-95 cursor-pointer shadow-2xl"
+                    }`}
                 >
-                    ✕
+                    ‹
                 </button>
 
-                {/* Animated Directional Slide Track Content Container */}
+                {/* Modal Dialog Card */}
                 <div
-                    key={index}
-                    className={`${direction === 'left' ? 'track-slide-from-left' : 'track-slide-from-right'} flex flex-col flex-1 overflow-hidden`}
+                    className={`glass-panel w-full rounded-3xl p-6 md:p-8 border border-white/15 shadow-2xl relative flex flex-col max-h-[72vh] md:max-h-[78vh] overflow-hidden select-none touch-auto overscroll-contain ${isClosing ? 'modal-scale-out' : 'modal-scale-in'}`}
+                    onTouchStart={handleTouchStart}
+                    onTouchEnd={handleTouchEnd}
+                    onClick={(e) => e.stopPropagation()}
                 >
-                    {/* Song Header */}
-                    <div className="flex flex-col items-start pt-2 pb-4 border-b border-white/10 pr-10">
-                        <div className="flex items-center gap-2 mb-2 flex-wrap">
-                            <span className="text-xs font-mono text-primary-variant font-bold tracking-widest uppercase bg-primary-variant/15 border border-primary-variant/30 px-2.5 py-0.5 rounded-full">
-                                TRACK {String(index + 1).padStart(2, '0')}
-                            </span>
-                            {badgeText && (
-                                <span className="text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary px-3 py-0.5 rounded-full shadow-sm">
-                                    ✦ {badgeText}
+                    {/* Close Button */}
+                    <button
+                        onClick={handleClose}
+                        aria-label="Close modal"
+                        className="absolute top-5 right-5 w-9 h-9 rounded-full glass-card flex items-center justify-center text-text-muted hover:text-white hover:border-primary/50 transition-all duration-200 cursor-pointer z-10"
+                    >
+                        ✕
+                    </button>
+
+                    {/* Animated Directional Slide Track Content Container */}
+                    <div
+                        key={index}
+                        className={`${direction === 'left' ? 'track-slide-from-left' : 'track-slide-from-right'} flex flex-col flex-1 overflow-hidden`}
+                    >
+                        {/* Song Header */}
+                        <div className="flex flex-col items-start pt-2 pb-4 border-b border-white/10 pr-10">
+                            <div className="flex items-center gap-2 mb-2 flex-wrap">
+                                <span className="text-xs font-mono text-primary-variant font-bold tracking-widest uppercase bg-primary-variant/15 border border-primary-variant/30 px-2.5 py-0.5 rounded-full">
+                                    TRACK {String(index + 1).padStart(2, '0')}
                                 </span>
+                                {badgeText && (
+                                    <span className="text-xs font-maru font-semibold text-white bg-gradient-to-r from-secondary to-primary px-3 py-0.5 rounded-full shadow-sm">
+                                        ✦ {badgeText}
+                                    </span>
+                                )}
+                            </div>
+
+                            <h2 className="text-2xl md:text-3xl font-title text-gradient-sunset tracking-wide">
+                                {song.name}
+                            </h2>
+                            {song.translatedName && (
+                                <p className="text-sm text-text-muted font-maru mt-0.5">
+                                    （{song.translatedName}）
+                                </p>
                             )}
-                        </div>
-
-                        <h2 className="text-2xl md:text-3xl font-title text-gradient-sunset tracking-wide">
-                            {song.name}
-                        </h2>
-                        {song.translatedName && (
-                            <p className="text-sm text-text-muted font-maru mt-0.5">
-                                （{song.translatedName}）
+                            <p className="text-sm md:text-base text-primary-variant font-maru font-medium mt-1">
+                                原唱：{song.artist}
                             </p>
-                        )}
-                        <p className="text-sm md:text-base text-primary-variant font-maru font-medium mt-1">
-                            原唱：{song.artist}
-                        </p>
-                    </div>
-
-                    {/* Scrollable Content */}
-                    <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-5 overscroll-contain touch-pan-y">
-                        {/* Song Description */}
-                        <div>
-                            <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-2 px-1">
-                                ✦ SONG STORY // 曲目簡介
-                            </div>
-                            <div className="glass-card rounded-2xl p-4 md:p-5 border border-white/10 text-sm md:text-base text-text-main font-maru leading-relaxed bg-background-dark/70">
-                                {description || "這首歌曲將在 2026 耕云祭 4.0 現場帶來充滿感染力的樂團演出，敬請期待！"}
-                            </div>
                         </div>
 
-                        {/* Performer Lineup */}
-                        <div>
-                            <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-2 px-1">
-                                ✦ STAGE LINEUP // 演出人員
+                        {/* Scrollable Content */}
+                        <div className="flex-1 overflow-y-auto pr-1 my-4 space-y-5 overscroll-contain touch-pan-y">
+                            {/* Song Description */}
+                            <div>
+                                <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-2 px-1">
+                                    ✦ SONG STORY // 曲目簡介
+                                </div>
+                                <div className="glass-card rounded-2xl p-4 md:p-5 border border-white/10 text-sm md:text-base text-text-main font-maru leading-relaxed bg-background-dark/70">
+                                    {description || "這首歌曲將在 2026 耕云祭 現場帶來充滿感染力的樂團演出，敬請期待！"}
+                                </div>
                             </div>
-                            <div className="flex flex-wrap items-center gap-2">
-                                {Array.isArray(song.performers) &&
-                                    song.performers.map(([position, name]) => (
-                                        <Performer
-                                            key={position + '-' + name}
-                                            position={position}
-                                            name={name}
-                                            onSelect={(pName) => {
-                                                handleClose();
-                                                setTimeout(() => {
-                                                    onSelectPerformer(pName);
-                                                }, 180);
-                                            }}
-                                        />
-                                    ))}
+
+                            {/* Performer Lineup */}
+                            <div>
+                                <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-2 px-1">
+                                    ✦ STAGE LINEUP // 演出人員
+                                </div>
+                                <div className="flex flex-wrap items-center gap-2">
+                                    {Array.isArray(song.performers) &&
+                                        song.performers.map(([position, name]) => (
+                                            <Performer
+                                                key={position + '-' + name}
+                                                position={position}
+                                                name={name}
+                                                onSelect={(pName) => {
+                                                    handleClose();
+                                                    setTimeout(() => {
+                                                        onSelectPerformer(pName);
+                                                    }, 180);
+                                                }}
+                                            />
+                                        ))}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {/* Desktop Right Navigation Arrow */}
+                <button
+                    type="button"
+                    disabled={!hasNext}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        hasNext && handleNavigate(index + 1);
+                    }}
+                    aria-label="Next track"
+                    className={`hidden md:flex absolute -right-16 lg:-right-20 top-1/2 -translate-y-1/2 w-12 h-12 lg:w-14 lg:h-14 rounded-full glass-card border border-white/20 items-center justify-center text-3xl font-bold transition-all duration-200 z-30 select-none ${
+                        !hasNext
+                            ? "opacity-15 cursor-not-allowed text-white/30 border-white/5 pointer-events-none"
+                            : "text-text-muted hover:text-white hover:scale-110 hover:border-primary/60 hover:bg-white/15 active:scale-95 cursor-pointer shadow-2xl"
+                    }`}
+                >
+                    ›
+                </button>
             </div>
 
-            {/* Minimalist Floating Track Navigator */}
+            {/* Mobile Minimalist Floating Track Navigator */}
             <div
-                className={`fixed bottom-5 md:bottom-7 left-1/2 -translate-x-1/2 flex items-center gap-4 px-4 py-1.5 rounded-full bg-[#0A0914]/85 backdrop-blur-xl border border-white/15 shadow-xl select-none z-50 ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
+                className={`flex md:hidden fixed bottom-5 left-1/2 -translate-x-1/2 items-center gap-4 px-4 py-1.5 rounded-full bg-[#0A0914]/85 backdrop-blur-xl border border-white/15 shadow-xl select-none z-50 ${isClosing ? 'backdrop-fade-out pointer-events-none' : 'animate-fade-up'}`}
                 onClick={(e) => e.stopPropagation()}
             >
                 <button
@@ -433,10 +473,11 @@ function SongModal(props: {
                     disabled={!hasPrev}
                     onClick={() => hasPrev && handleNavigate(index - 1)}
                     aria-label="Previous track"
-                    className={`w-7 h-7 flex items-center justify-center text-lg font-bold transition-all ${!hasPrev
+                    className={`w-7 h-7 flex items-center justify-center text-lg font-bold transition-all ${
+                        !hasPrev
                             ? "opacity-20 cursor-not-allowed text-white/30"
                             : "text-text-muted hover:text-white hover:scale-110 active:scale-90 cursor-pointer"
-                        }`}
+                    }`}
                 >
                     ‹
                 </button>
@@ -450,10 +491,11 @@ function SongModal(props: {
                     disabled={!hasNext}
                     onClick={() => hasNext && handleNavigate(index + 1)}
                     aria-label="Next track"
-                    className={`w-7 h-7 flex items-center justify-center text-lg font-bold transition-all ${!hasNext
+                    className={`w-7 h-7 flex items-center justify-center text-lg font-bold transition-all ${
+                        !hasNext
                             ? "opacity-20 cursor-not-allowed text-white/30"
                             : "text-text-muted hover:text-white hover:scale-110 active:scale-90 cursor-pointer"
-                        }`}
+                    }`}
                 >
                     ›
                 </button>

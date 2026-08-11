@@ -4,7 +4,7 @@ const eventFullName = `${eventName} ${eventYear}`;
 const eventEngName = "Be Able To Cultivate";
 const eventEngFullName = `${eventEngName} ${eventYear}`;
 const eventJpName = "カルティベイト";
-const eventTagline = "在音符裡播種，在舞台上綻放。";
+const eventTagline = "耕耘在地音樂人的音樂祭";
 const homePage = "首頁";
 const information = "演出資訊";
 const program = "節目表";
@@ -22,8 +22,9 @@ const eventVenue = "PIPE Live Music";
 const eventVenueAddress = "台北市中正區思源街 1 號（公館水岸廣場）";
 const eventDateTitle = "時間";
 const eventDate = "2026 年 9 月 13 日（日）";
-const eventTime = "11:20 入場・11:50 演出開始";
+const eventTime = "11:30 入場・12:00 開始";
 const eventAddToCalendar = "加入行事曆";
+const eventCalendarUrl = "https://calendar.app.google/LRXSpBANvmwhP5yv9";
 const eventTicketTitle = "票價";
 const eventTicketPrice = "NTD 350 元";
 const eventBuyTickets = "購買門票";
@@ -54,6 +55,7 @@ export default {
     eventDate,
     eventTime,
     eventAddToCalendar,
+    eventCalendarUrl,
     eventTicketTitle,
     eventTicketPrice,
     eventBuyTickets,
