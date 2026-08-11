@@ -621,7 +621,7 @@ function Song(props: {
                         {strings.intermission}
                     </h3>
                     <p className="text-xs text-text-muted font-maru mt-1">
-                        稍微休息一下，享受飲品，期待下半場精彩演出！
+                        稍微休息一下，期待下半場精彩演出！
                     </p>
                 </div>
             )}
