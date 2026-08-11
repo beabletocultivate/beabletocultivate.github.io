@@ -35,12 +35,12 @@ export default function Welcome() {
           className="glass-card px-4 py-2 rounded-full font-maru text-xs md:text-sm text-primary-variant hover:text-white flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:border-primary/40 active:scale-95 cursor-pointer shadow-lg"
         >
           <span className="text-secondary">✦</span>
-          <span className="hidden sm:inline opacity-70">公式 IG</span>
+          <span className="hidden sm:inline opacity-70">官方 IG</span>
           <span>{strings.cultivateInstagram}</span>
         </a>
       </div>
 
-      {/* Japanese Vertical Poetic Tagline (Desktop) */}
+      {/* Vertical Poetic Tagline (Desktop) */}
       <div className="hidden lg:flex absolute right-16 top-1/2 -translate-y-1/2 z-10 opacity-0 animate-fade-up-delay-1 pointer-events-none">
         <div className="writing-vertical text-primary-variant/75 text-sm tracking-[0.35em] font-serif border-r border-primary-variant/25 pr-3 py-4">
           {strings.eventTagline}
@@ -49,7 +49,7 @@ export default function Welcome() {
 
       {/* Hero Content Section */}
       <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start md:pl-16 lg:pl-24 max-w-5xl z-10 pointer-events-none">
-        {/* Japanese Festival Badge */}
+        {/* Festival Badge */}
         <div className="opacity-0 animate-fade-up mb-3 pointer-events-auto">
           <div className="jp-badge">
             <span>✦</span>
@@ -60,7 +60,7 @@ export default function Welcome() {
           </div>
         </div>
 
-        {/* Title & Japanese Subtitles */}
+        {/* Title & Subtitles */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <div className="text-xs md:text-sm font-maru text-primary-variant/90 uppercase mb-1 flex flex-col md:flex-row items-center md:gap-2">
             <span className="tracking-[0.3em]">{strings.eventJpName}</span>
@@ -70,8 +70,8 @@ export default function Welcome() {
           <h1 className="title-animated text-7xl md:text-9xl tracking-tight font-title opacity-0 drop-shadow-2xl">
             {strings.eventName}
           </h1>
-          <h3 className="text-xl md:text-3xl tracking-[0.25em] text-primary-variant font-maru font-bold opacity-0 animate-fade-up-delay-1 mt-2 drop-shadow">
-            {strings.eventEngFullName}
+          <h3 className="text-xl md:text-3xl tracking-[0.2em] text-primary-variant font-maru font-bold opacity-0 animate-fade-up-delay-1 mt-2 drop-shadow uppercase">
+            {strings.eventEngName}
           </h3>
         </div>
 

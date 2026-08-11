@@ -1,10 +1,10 @@
 const eventName = "耕云祭";
 const eventYear = "2026";
 const eventFullName = `${eventName} ${eventYear}`;
-const eventEngName = "Cultivate";
+const eventEngName = "Be Able To Cultivate";
 const eventEngFullName = `${eventEngName} ${eventYear}`;
-const eventJpName = "カルティベイト 2026";
-const eventTagline = "音と言葉を、心に耕す日。";
+const eventJpName = "カルティベイト";
+const eventTagline = "在音符裡播種，在舞台上綻放。";
 const homePage = "首頁";
 const information = "演出資訊";
 const program = "節目表";

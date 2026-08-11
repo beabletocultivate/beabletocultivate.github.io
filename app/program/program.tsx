@@ -150,7 +150,7 @@ function PerformerModal(props: {
                     </h2>
 
                     <div className="jp-badge mt-1">
-                        <span>✦ 出演：全 {performerTracks.length} 曲 ✦</span>
+                        <span>✦ 演出：共 {performerTracks.length} 首曲目 ✦</span>
                     </div>
 
                     {/* Instagram Link (Only rendered if configured) */}
@@ -569,17 +569,17 @@ function Song(props: {
                 </div>
             </div>
 
-            {/* Japanese Intermission Break Banner */}
+            {/* Intermission Break Banner */}
             {index === INTERMISSION_AFTER_SONG && (
                 <div className="w-full my-8 py-6 px-6 rounded-2xl glass-panel text-center border border-primary/35 glow-primary">
                     <span className="text-xs uppercase tracking-[0.25em] text-primary-variant font-maru font-bold block mb-1">
-                        ── ✦ 休憩 TIME ✦ ──
+                        ── ✦ INTERMISSION ✦ ──
                     </span>
                     <h3 className="text-2xl md:text-3xl font-title text-gradient-sunset tracking-wider">
                         {strings.intermission}
                     </h3>
                     <p className="text-xs text-text-muted font-maru mt-1">
-                        ドリンクを片手に、後半のステージをお楽しみに！
+                        稍微休息一下，享受飲品，期待下半場精彩演出！
                     </p>
                 </div>
             )}
@@ -611,7 +611,7 @@ export default function Program() {
                 <div className="text-center max-w-xl mb-8">
                     <div className="jp-badge mb-3">
                         <span>✦</span>
-                        <span>TIMETABLE // タイムテーブル</span>
+                        <span>TIMETABLE</span>
                         <span>✦</span>
                     </div>
                     <h1 className="text-5xl md:text-7xl font-title tracking-tight text-gradient-sunset mb-2 drop-shadow">

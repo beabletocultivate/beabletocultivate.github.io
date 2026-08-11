@@ -37,7 +37,7 @@ export default function About() {
                 <div className="text-center max-w-xl mb-10">
                     <div className="jp-badge mb-3">
                         <span>✦</span>
-                        <span>ABOUT // 耕云について</span>
+                        <span>ABOUT</span>
                         <span>✦</span>
                     </div>
                     <h1 className="text-5xl md:text-7xl font-title tracking-tight text-gradient-sunset mb-2 drop-shadow">
@@ -50,13 +50,12 @@ export default function About() {
 
                 {/* Section 1: The Story & Able Music Community */}
                 <div className="w-full mb-10">
-                    <div className="glass-panel rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
-                        <div className="flex items-center gap-2 mb-4">
-                            <span className="text-xs font-mono text-primary-variant font-bold tracking-widest uppercase bg-primary-variant/15 border border-primary-variant/30 px-3 py-0.5 rounded-full">
-                                ✦ ABOUT CULTIVATE // 關於耕云祭
-                            </span>
-                        </div>
+                    <div className="flex items-center gap-2 text-primary-variant font-bold text-sm tracking-wider uppercase font-maru mb-4 px-1">
+                        <span>✦</span>
+                        <span>關於耕云祭 // ABOUT CULTIVATE</span>
+                    </div>
 
+                    <div className="glass-panel rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
                         <h2 className="text-2xl md:text-3xl font-title text-white mb-4">
                             在音符裡播種，在舞台上綻放
                         </h2>
@@ -100,8 +99,9 @@ export default function About() {
 
                 {/* Section 2: Organizers & Mentors Profiles */}
                 <div className="w-full mb-10">
-                    <div className="text-xs font-mono text-primary-variant/70 tracking-widest uppercase mb-4 px-1">
-                        ✦ MAIN ORGANIZERS & MENTORS // 主辦人與音樂導師
+                    <div className="flex items-center gap-2 text-primary-variant font-bold text-sm tracking-wider uppercase font-maru mb-4 px-1">
+                        <span>✦</span>
+                        <span>主辦團隊 // ORGANIZERS & MENTORS</span>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -228,13 +228,18 @@ export default function About() {
                 </div>
 
                 {/* Section 3: Reserved Letter / Message placeholder */}
-                <div className="w-full">
+                <div className="w-full mb-4">
+                    <div className="flex items-center gap-2 text-primary-variant font-bold text-sm tracking-wider uppercase font-maru mb-4 px-1">
+                        <span>✦</span>
+                        <span>主辦的話 // MESSAGE</span>
+                    </div>
+
                     <div className="glass-card rounded-3xl p-6 md:p-8 border border-dashed border-white/15 text-center">
                         <span className="text-xs uppercase tracking-[0.25em] text-primary-variant/70 font-maru font-bold block mb-1">
-                            ── ✦ 演出倒數中 ✦ ──
+                            ── 演出倒數中 ──
                         </span>
                         <h4 className="text-lg md:text-xl font-title text-text-muted">
-                            主辦的話（即將公開）
+                            即將公開
                         </h4>
                     </div>
                 </div>
