@@ -1,6 +1,8 @@
+import strings from "./resources/strings";
+
 export function defaultMeta() {
   return [
-    { title: "耕云祭 2026" },
-    { name: "description", content: "Welcome to Be Able To Cultivate 2026!" },
+    { title: `${strings.eventName} ${strings.eventYear}` },
+    { name: "description", content: `${strings.eventName} ${strings.eventYear}（${strings.eventEngName}）— ${strings.eventTagline}` },
   ];
 }

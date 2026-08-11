@@ -48,7 +48,7 @@ export default function About() {
                 <div className="w-full mb-10">
                     <div className="flex items-center gap-2 text-primary-variant font-bold text-sm tracking-wider uppercase font-maru mb-4 px-1">
                         <span>✦</span>
-                        <span>關於耕云祭 // ABOUT BE ABLE TO CULTIVATE</span>
+                        <span>關於耕云祭 // BE ABLE TO CULTIVATE</span>
                     </div>
 
                     <div className="glass-panel rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
