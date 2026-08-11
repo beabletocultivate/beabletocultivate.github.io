@@ -11,7 +11,7 @@ const menuItems = [
     { name: strings.homePage, link: "/", en: "HOME", jp: "トップ" },
     { name: strings.program, link: "/program", en: "TIMETABLE", jp: "タイムテーブル" },
     { name: strings.information, link: "/information", en: "INFORMATION", jp: "開催概要" },
-    { name: strings.slash, link: "/slash", en: "SLASH ZONE", jp: "パラレルキャリア" },
+    { name: strings.about, link: "/about", en: "ABOUT", jp: "耕云について" },
 ];
 
 function MenuItems(props: { open: boolean, closeMenu: () => void }) {

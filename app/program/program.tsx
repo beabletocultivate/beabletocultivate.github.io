@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import type { Route } from './+types/program';
 import './program.css';
 
+import Footer from '../footer/footer';
 import Menu from '../menu/menu';
 import bassIcon from '../resources/bass.png';
 import strings from '../resources/strings';
@@ -635,9 +636,7 @@ export default function Program() {
                 </div>
 
                 {/* Japanese Footer Tag */}
-                <div className="mt-16 text-center text-xs text-text-subtle font-maru">
-                    <p>© {strings.eventYear} {strings.eventName} // {strings.eventJpName} • {strings.eventVenue}</p>
-                </div>
+                <Footer />
             </div>
 
             {/* Song Introduction Modal */}

@@ -64,3 +64,25 @@
   animation: floatGentle 4s ease-in-out infinite;
 }
 
+@keyframes titleShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.title-animated {
+  background: linear-gradient(135deg, #FFF8E7 0%, #F9C354 25%, #FF6E54 50%, #DF5998 75%, #FFF8E7 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards, titleShimmer 8s ease infinite 0.6s;
+}
+
+
+

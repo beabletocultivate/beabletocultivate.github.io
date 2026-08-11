@@ -10,8 +10,8 @@ const information = "演出資訊";
 const program = "節目表";
 const readInformation = `查看${information}`;
 const readProgram = `查看${program}`;
-const slash = "/斜槓區/";
-const slashDescription = "來看看我們的表演者們在生活中的多重身分吧！";
+const about = "關於耕云";
+const aboutDescription = "認識耕云祭的幕後團隊與艾立樂器音樂聚落";
 const intermission = "— 中場休息 —";
 const cultivateInstagram = "@be.able.to.cultivate";
 const followUsOnInstagram = "✨ 點擊任一曲目查看曲目簡介 • 點擊表演者查看個人檔案";
@@ -41,8 +41,8 @@ export default {
     program,
     readInformation,
     readProgram,
-    slash,
-    slashDescription,
+    about,
+    aboutDescription,
     intermission,
     cultivateInstagram,
     followUsOnInstagram,

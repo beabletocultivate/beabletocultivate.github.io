@@ -1,6 +1,7 @@
 import type { Route } from './+types/information';
 import './information.css';
 
+import Footer from "../footer/footer";
 import Menu from "../menu/menu";
 import strings from "../resources/strings";
 import nikkeiSky from "../resources/nikkei-sky-clean.png";
@@ -29,7 +30,7 @@ function Map() {
 
 export default function Information() {
     return (
-        <div className="relative min-h-screen w-full bg-background overflow-x-hidden text-text-main pb-16">
+        <div className="relative min-h-screen w-full bg-background overflow-x-hidden text-text-main pb-24">
             {/* Japanese Anime Sky Backdrop */}
             <div className="fixed inset-0 pointer-events-none">
                 <img
@@ -133,6 +134,9 @@ export default function Information() {
                     {/* Map Component */}
                     <Map />
                 </div>
+
+                {/* Footer Tag */}
+                <Footer />
             </div>
 
             <Menu />

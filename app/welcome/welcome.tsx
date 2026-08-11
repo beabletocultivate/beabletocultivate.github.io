@@ -67,7 +67,7 @@ export default function Welcome() {
             <span className="hidden md:inline opacity-60">//</span>
             <span className="tracking-[0.25em] text-[11px] md:text-sm opacity-80 md:opacity-100 mt-0.5 md:mt-0">INDIE LIVE FESTIVAL</span>
           </div>
-          <h1 className="text-7xl md:text-9xl tracking-tight text-gradient-sunset font-title opacity-0 animate-fade-up drop-shadow-2xl">
+          <h1 className="title-animated text-7xl md:text-9xl tracking-tight font-title opacity-0 drop-shadow-2xl">
             {strings.eventName}
           </h1>
           <h3 className="text-xl md:text-3xl tracking-[0.25em] text-primary-variant font-maru font-bold opacity-0 animate-fade-up-delay-1 mt-2 drop-shadow">
@@ -95,6 +95,13 @@ export default function Welcome() {
             </button>
           </Link>
         </div>
+      </div>
+
+      {/* Bottom Credit */}
+      <div className="absolute bottom-6 left-0 right-0 text-center z-20 pointer-events-none opacity-0 animate-fade-up-delay-2">
+        <p className="text-xs font-maru text-text-muted/80 tracking-wider">
+          Made with 🤍 by Elise
+        </p>
       </div>
 
       <Menu />
