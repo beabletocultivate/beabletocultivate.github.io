@@ -44,11 +44,11 @@ export default function About() {
                     </p>
                 </div>
 
-                {/* Section 1: The Story & Cultivate Festival */}
+                {/* Section 1: The Story & Be Able To Cultivate Festival */}
                 <div className="w-full mb-10">
                     <div className="flex items-center gap-2 text-primary-variant font-bold text-sm tracking-wider uppercase font-maru mb-4 px-1">
                         <span>✦</span>
-                        <span>關於耕云祭 // ABOUT CULTIVATE</span>
+                        <span>關於耕云祭 // ABOUT BE ABLE TO CULTIVATE</span>
                     </div>
 
                     <div className="glass-panel rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
@@ -58,7 +58,7 @@ export default function About() {
 
                         <div className="space-y-4 text-sm md:text-base text-text-main font-maru leading-relaxed">
                             <p>
-                                「耕云祭（Cultivate）」是由台北信義區的音樂空間<strong className="text-primary-variant">「艾立樂器 / 艾白音樂 (Able Music)」</strong>師生共同孕育的年度現場音樂祭。
+                                「耕云祭（Be Able To Cultivate）」是由台北信義區的音樂空間<strong className="text-primary-variant">「艾立樂器 / 艾白音樂 (Able Music)」</strong>師生共同孕育的年度現場音樂祭。
                             </p>
                             <p>
                                 每一位站上舞台的演出者，平時在生活中擁有各自不同的職業與角色；但在琴房與練團室裡，大家都是全心投入音樂的夥伴。從指尖的第一個和弦、無數次合奏磨合的汗水，到今天站上 <span className="text-primary-variant">PIPE Live Music</span> 的聚光燈下——耕云祭正是大家用心耕耘、分享音樂熱情的成果。

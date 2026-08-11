@@ -18,7 +18,7 @@ export default function Welcome() {
       {/* Makoto Shinkai Anime Twilight Sky Background */}
       <img
         src={nikkeiBg}
-        alt="Cultivate Twilight Festival"
+        alt="Be Able To Cultivate Twilight Festival"
         className="absolute w-full h-full object-cover object-center animate-twilight-bg scale-105"
       />
 
