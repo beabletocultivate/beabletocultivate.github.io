@@ -9,6 +9,11 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { defaultMeta } from "./meta";
+
+export function meta({ }: Route.MetaArgs) {
+  return defaultMeta();
+}
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
