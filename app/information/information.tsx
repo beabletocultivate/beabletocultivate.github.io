@@ -115,16 +115,16 @@ export default function Information() {
                                 <span className="text-xs text-text-muted">/ 入場票券</span>
                             </div>
                             <div className="mt-3">
-                                <button
-                                    type="button"
-                                    disabled
-                                    aria-disabled="true"
-                                    className="inline-flex items-center justify-center gap-2 w-full bg-white/5 border border-dashed border-white/20 text-text-muted font-maru text-base md:text-lg font-bold py-3.5 px-6 rounded-full cursor-not-allowed opacity-80 select-none"
+                                <a
+                                    href="https://forms.gle/QDwRC9AAbomDJyGW9"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-primary to-secondary hover:scale-[1.02] active:scale-[0.98] transition-transform text-white font-maru text-base md:text-lg font-bold py-3.5 px-6 rounded-full cursor-pointer shadow-lg shadow-primary/20"
                                 >
                                     <span>✦</span>
-                                    <span>線上購票（即將開放）</span>
+                                    <span>{strings.eventBuyTickets}</span>
                                     <span>✦</span>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
